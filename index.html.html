@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grammercy TCG Co. — Collection Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #17213a;
+    --ink-soft: #2c3a5c;
+    --parchment: #f5efe2;
+    --parchment-deep: #ebe1cc;
+    --card-stock: #fffdf8;
+    --brass: #a9792f;
+    --brass-deep: #7e5a20;
+    --moss: #4c6a4a;
+    --moss-bg: #e3ead9;
+    --rust: #9c4b3f;
+    --rust-bg: #f2e1dd;
+    --hold: #7a6530;
+    --hold-bg: #f0e8cf;
+    --line: rgba(23, 33, 58, 0.14);
+    --shadow: rgba(23, 33, 58, 0.18);
+    --text: #231f18;
+    --text-dim: #5b5444;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ink: #0e1423;
+      --ink-soft: #1b2740;
+      --parchment: #15120d;
+      --parchment-deep: #1d1811;
+      --card-stock: #211c15;
+      --brass: #d7a654;
+      --brass-deep: #e7c07f;
+      --moss: #8fb589;
+      --moss-bg: #1d2a1c;
+      --rust: #d98b7c;
+      --rust-bg: #2c1c19;
+      --hold: #e0c479;
+      --hold-bg: #2a230f;
+      --line: rgba(245, 239, 226, 0.14);
+      --shadow: rgba(0, 0, 0, 0.5);
+      --text: #efe7d6;
+      --text-dim: #b7ad97;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ink: #0e1423;
+    --ink-soft: #1b2740;
+    --parchment: #15120d;
+    --parchment-deep: #1d1811;
+    --card-stock: #211c15;
+    --brass: #d7a654;
+    --brass-deep: #e7c07f;
+    --moss: #8fb589;
+    --moss-bg: #1d2a1c;
+    --rust: #d98b7c;
+    --rust-bg: #2c1c19;
+    --hold: #e0c479;
+    --hold-bg: #2a230f;
+    --line: rgba(245, 239, 226, 0.14);
+    --shadow: rgba(0, 0, 0, 0.5);
+    --text: #efe7d6;
+    --text-dim: #b7ad97;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--parchment);
+    color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, sans-serif;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 86px);
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto;
+    height: env(safe-area-inset-top, 0px);
+    z-index: 30;
+    background: var(--ink);
+  }
+  a { color: inherit; }
+
+  /* ---- Header ---- */
+  header.site {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 2.6rem 1.5rem 2.2rem;
+  }
+  .site-inner { max-width: 1060px; margin: 0 auto; }
+  .mark {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5vw, 3rem);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .mark em { font-style: italic; color: var(--brass); }
+  .tagline {
+    max-width: 46ch;
+    color: #cdd3e2;
+    font-size: 1rem;
+    line-height: 1.55;
+    margin: 0.7rem 0 0;
+  }
+  .ledger-stats {
+    display: flex;
+    gap: 2.2rem;
+    margin-top: 1.8rem;
+    flex-wrap: wrap;
+  }
+  .ledger-stats div { min-width: 90px; }
+  .ledger-stats .n {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.6rem;
+    color: var(--brass);
+  }
+  .ledger-stats .l {
+    font-size: 0.82rem;
+    color: #aeb6c9;
+  }
+
+  /* ---- Controls ---- */
+  .controls {
+    max-width: 1060px;
+    margin: -1.4rem auto 0;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+  .controls-bar {
+    background: var(--card-stock);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 10px 24px var(--shadow);
+    padding: 0.9rem 1rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .controls input[type="search"] {
+    flex: 1 1 200px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--text);
+    padding: 0.55rem 0.8rem;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 0.95rem;
+  }
+  .controls select {
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--text);
+    padding: 0.55rem 0.7rem;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 0.9rem;
+  }
+  .chip-toggle {
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--text-dim);
+    padding: 0.5rem 0.8rem;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  .chip-toggle.active {
+    background: var(--moss-bg);
+    color: var(--moss);
+    border-color: var(--moss);
+  }
+
+  /* ---- Catalog grid ---- */
+  main { max-width: 1060px; margin: 0 auto; padding: 1.6rem 1.5rem 2rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+    gap: 1.1rem;
+  }
+  .tile {
+    background: var(--card-stock);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .tile.sold { opacity: 0.55; }
+  .thumb-wrap {
+    position: relative;
+    aspect-ratio: 5/7;
+    background: var(--parchment-deep);
+    cursor: zoom-in;
+    border-bottom: 1px solid var(--line);
+  }
+  .thumb-wrap img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .thumb-fallback {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 1rem;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    background:
+      repeating-linear-gradient(135deg, var(--parchment-deep), var(--parchment-deep) 10px, var(--card-stock) 10px, var(--card-stock) 20px);
+  }
+  .status-badge {
+    position: absolute; top: 0.5rem; right: 0.5rem;
+    font-size: 0.68rem; font-weight: 600;
+    padding: 0.2rem 0.5rem; border-radius: 99px;
+    letter-spacing: 0.02em;
+  }
+  .status-available { background: var(--moss-bg); color: var(--moss); }
+  .status-sold { background: var(--rust-bg); color: var(--rust); }
+  .status-hold { background: var(--hold-bg); color: var(--hold); }
+  .tile-body { padding: 0.8rem 0.85rem 0.9rem; display: flex; flex-direction: column; gap: 0.3rem; flex: 1; }
+  .tile-name {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.02rem;
+    line-height: 1.25;
+    margin: 0;
+  }
+  .tile-meta { font-size: 0.78rem; color: var(--text-dim); }
+  .tile-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding-top: 0.5rem; }
+  .tile-price { font-weight: 600; font-size: 1.02rem; color: var(--brass-deep); }
+  .add-btn {
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 0.4rem 0.7rem;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 0.82rem;
+    cursor: pointer;
+  }
+  .add-btn.added { background: var(--moss); border-color: var(--moss); color: #fff; }
+  .add-btn:disabled { background: transparent; color: var(--text-dim); border-color: var(--line); cursor: not-allowed; }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-dim);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.1rem;
+  }
+
+  /* ---- Modal ---- */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(10, 8, 5, 0.78);
+    display: none; align-items: center; justify-content: center;
+    z-index: 50; padding: calc(env(safe-area-inset-top,0px) + 1rem) 1rem calc(env(safe-area-inset-bottom,0px) + 1rem);
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: var(--card-stock);
+    border-radius: 14px;
+    max-width: 880px; width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute; top: 0.8rem; right: 0.9rem;
+    background: var(--ink); color: var(--parchment);
+    border: none; width: 34px; height: 34px; border-radius: 50%;
+    font-size: 1.1rem; cursor: pointer; z-index: 2;
+  }
+  .modal-head { padding: 1.3rem 1.5rem 0.4rem; }
+  .modal-head .tile-meta { font-size: 0.85rem; }
+  .modal-head h2 { font-family: "Fraunces", Georgia, serif; margin: 0.2rem 0 0.1rem; font-size: 1.6rem; }
+  .modal-price-row { display: flex; align-items: center; gap: 0.8rem; margin-top: 0.4rem; flex-wrap: wrap; }
+  .modal-images {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+  @media (max-width: 560px) { .modal-images { grid-template-columns: 1fr; } }
+  .modal-img-cell { text-align: center; }
+  .modal-img-cell .lbl { font-size: 0.78rem; color: var(--text-dim); margin-bottom: 0.4rem; }
+  .modal-img-cell img, .modal-img-cell .thumb-fallback {
+    width: 100%; border-radius: 8px; border: 1px solid var(--line);
+  }
+  .modal-img-cell .thumb-fallback { position: static; aspect-ratio: 5/7; }
+  .modal-foot {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.8rem 1.5rem 1.4rem; gap: 1rem; flex-wrap: wrap;
+  }
+  .nav-btns { display: flex; gap: 0.5rem; }
+  .nav-btns button {
+    border: 1px solid var(--line); background: transparent; color: var(--text);
+    padding: 0.5rem 0.9rem; border-radius: 7px; cursor: pointer; font: inherit;
+  }
+
+  /* ---- Order tray ---- */
+  .tray {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    background: var(--ink); color: var(--parchment);
+    padding: 0.8rem 1.5rem calc(env(safe-area-inset-bottom, 0px) + 0.8rem);
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    box-shadow: 0 -8px 24px var(--shadow);
+  }
+  .tray-summary { font-size: 0.95rem; }
+  .tray-summary b { color: var(--brass); font-family: "Fraunces", Georgia, serif; font-size: 1.1rem; }
+  .tray button.view-order {
+    background: var(--brass); color: #1a1406; border: none;
+    padding: 0.6rem 1.1rem; border-radius: 8px; font: inherit; font-weight: 600; cursor: pointer;
+  }
+  .tray button.view-order:disabled { background: #4a4a4a; color: #999; cursor: not-allowed; }
+
+  .order-panel {
+    position: fixed; inset: 0; background: rgba(10,8,5,0.78); z-index: 55;
+    display: none; align-items: flex-end; justify-content: center;
+  }
+  .order-panel.open { display: flex; }
+  .order-sheet {
+    background: var(--card-stock); width: 100%; max-width: 600px;
+    border-radius: 14px 14px 0 0; max-height: 86vh; overflow-y: auto;
+    padding: 1.3rem 1.5rem calc(env(safe-area-inset-bottom,0px) + 1.3rem);
+  }
+  .order-sheet h3 { font-family: "Fraunces", Georgia, serif; margin: 0 0 0.9rem; font-size: 1.4rem; }
+  .order-row {
+    display: flex; justify-content: space-between; gap: 0.8rem;
+    padding: 0.6rem 0; border-bottom: 1px solid var(--line); font-size: 0.92rem;
+  }
+  .order-row .rm { color: var(--rust); background: none; border: none; cursor: pointer; font: inherit; font-size: 0.8rem; }
+  .order-total { display: flex; justify-content: space-between; padding: 0.9rem 0; font-weight: 700; font-size: 1.1rem; }
+  textarea.summary-out {
+    width: 100%; min-height: 150px; font: 0.85rem/1.5 "Inter", monospace-ish, sans-serif;
+    border: 1px solid var(--line); border-radius: 8px; padding: 0.7rem;
+    background: var(--parchment); color: var(--text); margin-top: 0.6rem; resize: vertical;
+  }
+  .order-actions { display: flex; gap: 0.6rem; margin-top: 0.8rem; flex-wrap: wrap; }
+  .btn-solid { background: var(--ink); color: var(--parchment); border: none; padding: 0.6rem 1rem; border-radius: 8px; cursor: pointer; font: inherit; }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--line); padding: 0.6rem 1rem; border-radius: 8px; cursor: pointer; font: inherit; }
+  .close-sheet { float: right; background: none; border: none; font-size: 1.3rem; cursor: pointer; color: var(--text-dim); }
+
+  /* ---- Admin / catalog editor ---- */
+  details.admin {
+    max-width: 1060px; margin: 0 auto 2rem; padding: 0 1.5rem;
+  }
+  details.admin summary {
+    cursor: pointer; color: var(--text-dim); font-size: 0.85rem; padding: 0.5rem 0;
+  }
+  .admin-box {
+    background: var(--card-stock); border: 1px solid var(--line); border-radius: 10px;
+    padding: 1rem; margin-top: 0.5rem;
+  }
+  .admin-box p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
+  .admin-box textarea {
+    width: 100%; min-height: 220px; font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 0.8rem; border: 1px solid var(--line); border-radius: 8px; padding: 0.7rem;
+    background: var(--parchment); color: var(--text);
+  }
+  .admin-msg { font-size: 0.82rem; margin-top: 0.4rem; min-height: 1.2em; }
+  .admin-msg.ok { color: var(--moss); }
+  .admin-msg.err { color: var(--rust); }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="site-inner">
+    <p class="mark">Grammercy <em>TCG</em> Co.</p>
+    <p class="tagline">A working ledger of singles for sale — browse the checklist, flip any card to see both sides, and build an order below.</p>
+    <div class="ledger-stats">
+      <div><div class="n" id="statAvailable">—</div><div class="l">available</div></div>
+      <div><div class="n" id="statTotal">—</div><div class="l">total value</div></div>
+      <div><div class="n" id="statCount">—</div><div class="l">cards listed</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="controls-bar">
+    <input type="search" id="searchInput" placeholder="Search by name, set, or number…">
+    <select id="setFilter"><option value="">All sets</option></select>
+    <button class="chip-toggle" id="availOnlyBtn">Available only</button>
+  </div>
+</div>
+
+<main>
+  <div class="grid" id="grid"></div>
+  <div class="empty-state" id="emptyState" style="display:none;">Nothing matches that search.</div>
+</main>
+
+<!-- Card viewer modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <div class="modal-head">
+      <div class="tile-meta" id="modalMeta"></div>
+      <h2 id="modalName"></h2>
+      <div class="modal-price-row">
+        <span class="tile-price" id="modalPrice"></span>
+        <span class="status-badge" id="modalStatus"></span>
+      </div>
+    </div>
+    <div class="modal-images">
+      <div class="modal-img-cell">
+        <div class="lbl">Front</div>
+        <div id="modalFrontWrap"></div>
+      </div>
+      <div class="modal-img-cell">
+        <div class="lbl">Back</div>
+        <div id="modalBackWrap"></div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <div class="nav-btns">
+        <button id="modalPrev">← Previous card</button>
+        <button id="modalNext">Next card →</button>
+      </div>
+      <button class="add-btn" id="modalAddBtn"></button>
+    </div>
+  </div>
+</div>
+
+<!-- Order tray -->
+<div class="tray">
+  <div class="tray-summary"><b id="trayCount">0</b> cards selected · <b id="trayTotal">$0</b></div>
+  <button class="view-order" id="viewOrderBtn" disabled>View order</button>
+</div>
+
+<!-- Order sheet -->
+<div class="order-panel" id="orderPanel">
+  <div class="order-sheet">
+    <button class="close-sheet" id="closeOrderPanel">×</button>
+    <h3>Your order</h3>
+    <div id="orderRows"></div>
+    <div class="order-total"><span>Total</span><span id="orderTotalAmt">$0</span></div>
+    <p style="font-size:0.85rem;color:var(--text-dim);margin:0 0 0.3rem;">Copy this summary to send over Reddit, email, or DM:</p>
+    <textarea class="summary-out" id="summaryOut" readonly></textarea>
+    <div class="order-actions">
+      <button class="btn-solid" id="copyBtn">Copy summary</button>
+      <button class="btn-ghost" id="clearOrderBtn">Clear order</button>
+    </div>
+  </div>
+</div>
+
+<details class="admin">
+  <summary>Manage catalog (edit card list)</summary>
+  <div class="admin-box">
+    <p>
+      This catalog is stored in your browser only. Paste a JSON array of cards below and click "Save catalog" —
+      each card needs: <code>name</code>, <code>set</code>, <code>number</code>, <code>edition</code> (optional),
+      <code>price</code>, <code>status</code> (<code>available</code>, <code>hold</code>, or <code>sold</code>),
+      <code>frontImg</code> and <code>backImg</code> (direct image URLs — leave blank for a placeholder).
+      Ask Claude to generate this JSON for a new batch of cards and paste the result here.
+    </p>
+    <textarea id="catalogJson"></textarea>
+    <div class="order-actions">
+      <button class="btn-solid" id="saveCatalogBtn">Save catalog</button>
+      <button class="btn-ghost" id="resetCatalogBtn">Reset to sample data</button>
+      <button class="btn-ghost" id="downloadCatalogBtn">Download as file</button>
+    </div>
+    <div class="admin-msg" id="adminMsg"></div>
+  </div>
+</details>
+
+<script>
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "grammercy_catalog_v1";
+
+  var SAMPLE_DATA = [
+    {
+      id: "neo-destiny-dark-gengar-6-105",
+      name: "Dark Gengar",
+      set: "Neo Destiny",
+      number: "6/105",
+      edition: "Unlimited",
+      price: 985,
+      status: "available",
+      frontImg: "",
+      backImg: "",
+      notes: "Holo rare. Pricing cross-checked against TCGplayer and Collectr."
+    },
+    {
+      id: "base-set-charizard-4-102",
+      name: "Charizard",
+      set: "Base Set",
+      number: "4/102",
+      edition: "Unlimited",
+      price: 410,
+      status: "available",
+      frontImg: "",
+      backImg: ""
+    },
+    {
+      id: "jungle-vaporeon-12-64",
+      name: "Vaporeon",
+      set: "Jungle",
+      number: "12/64",
+      edition: "1st Edition",
+      price: 68,
+      status: "hold",
+      frontImg: "",
+      backImg: ""
+    },
+    {
+      id: "fossil-aerodactyl-1-62",
+      name: "Aerodactyl",
+      set: "Fossil",
+      number: "1/62",
+      edition: "Unlimited",
+      price: 54,
+      status: "sold",
+      frontImg: "",
+      backImg: ""
+    },
+    {
+      id: "team-rocket-dark-blastoise-3-82",
+      name: "Dark Blastoise",
+      set: "Team Rocket",
+      number: "3/82",
+      edition: "Unlimited",
+      price: 142,
+      status: "available",
+      frontImg: "",
+      backImg: ""
+    }
+  ];
+
+  var cards = [];
+  var order = {}; // id -> card
+  var filteredIds = [];
+  var currentModalIndex = -1;
+
+  function loadCatalog() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        cards = JSON.parse(raw);
+        return;
+      }
+    } catch (e) { /* ignore, fall back to sample */ }
+    cards = SAMPLE_DATA.slice();
+  }
+
+  function saveCatalogToStorage(data) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function money(n) {
+    return "$" + Number(n).toLocaleString("en-US", { maximumFractionDigits: 0 });
+  }
+
+  function escapeHtml(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function statusLabel(s) {
+    return s === "available" ? "Available" : s === "hold" ? "On hold" : "Sold";
+  }
+
+  function renderStats() {
+    var available = cards.filter(function (c) { return c.status === "available"; });
+    var totalVal = available.reduce(function (sum, c) { return sum + Number(c.price || 0); }, 0);
+    document.getElementById("statAvailable").textContent = available.length;
+    document.getElementById("statTotal").textContent = money(totalVal);
+    document.getElementById("statCount").textContent = cards.length;
+  }
+
+  function populateSetFilter() {
+    var sel = document.getElementById("setFilter");
+    var sets = Array.from(new Set(cards.map(function (c) { return c.set; }))).sort();
+    sel.innerHTML = '<option value="">All sets</option>' +
+      sets.map(function (s) { return '<option value="' + escapeHtml(s) + '">' + escapeHtml(s) + '</option>'; }).join("");
+  }
+
+  function imgOrFallback(url, name, extraClass) {
+    if (url) {
+      return '<img src="' + escapeHtml(url) + '" alt="' + escapeHtml(name) + '" loading="lazy" ' +
+        'onerror="this.replaceWith(Object.assign(document.createElement(\'div\'),{className:\'thumb-fallback ' + (extraClass||'') + '\',innerHTML:' + JSON.stringify(JSON.stringify(name)) + '}))">';
+    }
+    return '<div class="thumb-fallback ' + (extraClass||'') + '">' + escapeHtml(name) + '</div>';
+  }
+
+  function matchesFilters(c) {
+    var q = document.getElementById("searchInput").value.trim().toLowerCase();
+    var setVal = document.getElementById("setFilter").value;
+    var availOnly = document.getElementById("availOnlyBtn").classList.contains("active");
+    if (setVal && c.set !== setVal) return false;
+    if (availOnly && c.status !== "available") return false;
+    if (q) {
+      var hay = (c.name + " " + c.set + " " + c.number).toLowerCase();
+      if (hay.indexOf(q) === -1) return false;
+    }
+    return true;
+  }
+
+  function renderGrid() {
+    var grid = document.getElementById("grid");
+    var visible = cards.filter(matchesFilters);
+    filteredIds = visible.map(function (c) { return c.id; });
+
+    document.getElementById("emptyState").style.display = visible.length ? "none" : "block";
+
+    grid.innerHTML = visible.map(function (c) {
+      var inOrder = !!order[c.id];
+      var disabled = c.status !== "available";
+      return (
+        '<div class="tile ' + (c.status === "sold" ? "sold" : "") + '" data-id="' + escapeHtml(c.id) + '">' +
+          '<div class="thumb-wrap" data-open="' + escapeHtml(c.id) + '">' +
+            imgOrFallback(c.frontImg, c.name) +
+            '<span class="status-badge status-' + c.status + '">' + statusLabel(c.status) + '</span>' +
+          '</div>' +
+          '<div class="tile-body">' +
+            '<p class="tile-name">' + escapeHtml(c.name) + '</p>' +
+            '<p class="tile-meta">' + escapeHtml(c.set) + ' · #' + escapeHtml(c.number) + (c.edition ? ' · ' + escapeHtml(c.edition) : '') + '</p>' +
+            '<div class="tile-foot">' +
+              '<span class="tile-price">' + money(c.price) + '</span>' +
+              '<button class="add-btn ' + (inOrder ? "added" : "") + '" data-add="' + escapeHtml(c.id) + '" ' + (disabled ? "disabled" : "") + '>' +
+                (disabled ? statusLabel(c.status) : (inOrder ? "Added ✓" : "Add to order")) +
+              '</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>'
+      );
+    }).join("");
+  }
+
+  function cardById(id) {
+    return cards.filter(function (c) { return c.id === id; })[0];
+  }
+
+  function toggleOrder(id) {
+    var c = cardById(id);
+    if (!c || c.status !== "available") return;
+    if (order[id]) delete order[id];
+    else order[id] = c;
+    renderGrid();
+    renderTray();
+  }
+
+  function renderTray() {
+    var ids = Object.keys(order);
+    var total = ids.reduce(function (sum, id) { return sum + Number(order[id].price || 0); }, 0);
+    document.getElementById("trayCount").textContent = ids.length;
+    document.getElementById("trayTotal").textContent = money(total);
+    document.getElementById("viewOrderBtn").disabled = ids.length === 0;
+  }
+
+  function buildSummaryText() {
+    var ids = Object.keys(order);
+    var lines = ["Grammercy TCG Co. — Order Request", "----------------------------------"];
+    ids.forEach(function (id, i) {
+      var c = order[id];
+      lines.push((i + 1) + ". " + c.name + " (" + c.set + " #" + c.number + (c.edition ? ", " + c.edition : "") + ") — " + money(c.price));
+    });
+    var total = ids.reduce(function (sum, id) { return sum + Number(order[id].price || 0); }, 0);
+    lines.push("----------------------------------");
+    lines.push("Total: " + money(total) + " (" + ids.length + " card" + (ids.length === 1 ? "" : "s") + ")");
+    return lines.join("\n");
+  }
+
+  function renderOrderPanel() {
+    var ids = Object.keys(order);
+    var rows = document.getElementById("orderRows");
+    rows.innerHTML = ids.map(function (id) {
+      var c = order[id];
+      return '<div class="order-row"><span>' + escapeHtml(c.name) + ' <span style="color:var(--text-dim)">(' + escapeHtml(c.set) + ' #' + escapeHtml(c.number) + ')</span></span>' +
+        '<span>' + money(c.price) + ' <button class="rm" data-rm="' + escapeHtml(id) + '">remove</button></span></div>';
+    }).join("") || '<p style="color:var(--text-dim);font-size:0.9rem;">No cards selected yet.</p>';
+    var total = ids.reduce(function (sum, id) { return sum + Number(order[id].price || 0); }, 0);
+    document.getElementById("orderTotalAmt").textContent = money(total);
+    document.getElementById("summaryOut").value = ids.length ? buildSummaryText() : "";
+  }
+
+  // ---- Modal ----
+  function openModal(id) {
+    currentModalIndex = filteredIds.indexOf(id);
+    renderModal();
+    document.getElementById("modalOverlay").classList.add("open");
+  }
+  function closeModal() {
+    document.getElementById("modalOverlay").classList.remove("open");
+  }
+  function stepModal(delta) {
+    if (currentModalIndex === -1) return;
+    var next = currentModalIndex + delta;
+    if (next < 0 || next >= filteredIds.length) return;
+    currentModalIndex = next;
+    renderModal();
+  }
+  function renderModal() {
+    var id = filteredIds[currentModalIndex];
+    var c = cardById(id);
+    if (!c) return;
+    document.getElementById("modalMeta").textContent = c.set + " · #" + c.number + (c.edition ? " · " + c.edition : "");
+    document.getElementById("modalName").textContent = c.name;
+    document.getElementById("modalPrice").textContent = money(c.price);
+    var statusEl = document.getElementById("modalStatus");
+    statusEl.textContent = statusLabel(c.status);
+    statusEl.className = "status-badge status-" + c.status;
+    document.getElementById("modalFrontWrap").innerHTML = imgOrFallback(c.frontImg, c.name + " — front");
+    document.getElementById("modalBackWrap").innerHTML = imgOrFallback(c.backImg, c.name + " — back");
+
+    var addBtn = document.getElementById("modalAddBtn");
+    var inOrder = !!order[c.id];
+    addBtn.disabled = c.status !== "available";
+    addBtn.textContent = c.status !== "available" ? statusLabel(c.status) : (inOrder ? "Added ✓" : "Add to order");
+    addBtn.className = "add-btn " + (inOrder ? "added" : "");
+    addBtn.onclick = function () { toggleOrder(c.id); renderModal(); };
+
+    document.getElementById("modalPrev").disabled = currentModalIndex <= 0;
+    document.getElementById("modalNext").disabled = currentModalIndex >= filteredIds.length - 1;
+  }
+
+  // ---- Wiring ----
+  document.getElementById("grid").addEventListener("click", function (e) {
+    var openTarget = e.target.closest("[data-open]");
+    var addTarget = e.target.closest("[data-add]");
+    if (addTarget) {
+      e.stopPropagation();
+      toggleOrder(addTarget.getAttribute("data-add"));
+      return;
+    }
+    if (openTarget) {
+      openModal(openTarget.getAttribute("data-open"));
+    }
+  });
+
+  document.getElementById("modalClose").addEventListener("click", closeModal);
+  document.getElementById("modalOverlay").addEventListener("click", function (e) {
+    if (e.target.id === "modalOverlay") closeModal();
+  });
+  document.getElementById("modalPrev").addEventListener("click", function () { stepModal(-1); });
+  document.getElementById("modalNext").addEventListener("click", function () { stepModal(1); });
+  document.addEventListener("keydown", function (e) {
+    if (!document.getElementById("modalOverlay").classList.contains("open")) return;
+    if (e.key === "Escape") closeModal();
+    if (e.key === "ArrowLeft") stepModal(-1);
+    if (e.key === "ArrowRight") stepModal(1);
+  });
+
+  document.getElementById("searchInput").addEventListener("input", renderGrid);
+  document.getElementById("setFilter").addEventListener("change", renderGrid);
+  document.getElementById("availOnlyBtn").addEventListener("click", function () {
+    this.classList.toggle("active");
+    renderGrid();
+  });
+
+  document.getElementById("viewOrderBtn").addEventListener("click", function () {
+    renderOrderPanel();
+    document.getElementById("orderPanel").classList.add("open");
+  });
+  document.getElementById("closeOrderPanel").addEventListener("click", function () {
+    document.getElementById("orderPanel").classList.remove("open");
+  });
+  document.getElementById("orderPanel").addEventListener("click", function (e) {
+    if (e.target.id === "orderPanel") document.getElementById("orderPanel").classList.remove("open");
+  });
+  document.getElementById("orderRows").addEventListener("click", function (e) {
+    var rm = e.target.closest("[data-rm]");
+    if (rm) {
+      delete order[rm.getAttribute("data-rm")];
+      renderGrid(); renderTray(); renderOrderPanel();
+    }
+  });
+  document.getElementById("clearOrderBtn").addEventListener("click", function () {
+    order = {};
+    renderGrid(); renderTray(); renderOrderPanel();
+  });
+  document.getElementById("copyBtn").addEventListener("click", function () {
+    var text = document.getElementById("summaryOut").value;
+    var btn = this;
+    function done(ok) {
+      btn.textContent = ok ? "Copied ✓" : "Copy failed — select & copy manually";
+      setTimeout(function () { btn.textContent = "Copy summary"; }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(false); });
+    } else {
+      try {
+        var ta = document.getElementById("summaryOut");
+        ta.select();
+        document.execCommand("copy");
+        done(true);
+      } catch (e) { done(false); }
+    }
+  });
+
+  // ---- Admin / catalog editor ----
+  function refreshAdminTextarea() {
+    document.getElementById("catalogJson").value = JSON.stringify(cards, null, 2);
+  }
+  function setAdminMsg(msg, ok) {
+    var el = document.getElementById("adminMsg");
+    el.textContent = msg;
+    el.className = "admin-msg " + (ok ? "ok" : "err");
+  }
+  document.getElementById("saveCatalogBtn").addEventListener("click", function () {
+    var raw = document.getElementById("catalogJson").value;
+    try {
+      var parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) throw new Error("JSON must be an array of cards.");
+      parsed.forEach(function (c, i) {
+        if (!c.id) c.id = (c.name || "card") + "-" + i + "-" + Date.now();
+        if (!c.status) c.status = "available";
+      });
+      cards = parsed;
+      saveCatalogToStorage(cards);
+      populateSetFilter();
+      renderStats();
+      renderGrid();
+      setAdminMsg("Catalog saved — " + cards.length + " cards loaded.", true);
+    } catch (e) {
+      setAdminMsg("Couldn't parse that JSON: " + e.message, false);
+    }
+  });
+  document.getElementById("resetCatalogBtn").addEventListener("click", function () {
+    cards = SAMPLE_DATA.slice();
+    saveCatalogToStorage(cards);
+    populateSetFilter();
+    renderStats();
+    renderGrid();
+    refreshAdminTextarea();
+    setAdminMsg("Reset to sample data.", true);
+  });
+  document.getElementById("downloadCatalogBtn").addEventListener("click", function () {
+    var blob = new Blob([JSON.stringify(cards, null, 2)], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = "grammercy-catalog.json";
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  });
+
+  // ---- Init ----
+  loadCatalog();
+  populateSetFilter();
+  renderStats();
+  renderGrid();
+  renderTray();
+  refreshAdminTextarea();
+})();
+</script>
+</body>
+</html>
