@@ -183,6 +183,86 @@
     color: var(--moss);
     border-color: var(--moss);
   }
+  .type-group { display: flex; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; }
+  .type-group button {
+    border: none; background: transparent; color: var(--text-dim);
+    padding: 0.5rem 0.8rem; font: inherit; font-size: 0.85rem; cursor: pointer;
+    border-right: 1px solid var(--line);
+  }
+  .type-group button:last-child { border-right: none; }
+  .type-group button.active { background: var(--ink); color: var(--parchment); }
+  .type-chip {
+    display: inline-block; font-size: 0.68rem; font-weight: 600;
+    padding: 0.12rem 0.45rem; border-radius: 5px; letter-spacing: 0.02em;
+  }
+  .type-chip.slab { background: var(--hold-bg); color: var(--hold); }
+  .type-chip.raw { background: var(--moss-bg); color: var(--moss); }
+  .stale-chip { background: var(--rust-bg); color: var(--rust); display: inline-block; font-size: 0.68rem; font-weight: 600; padding: 0.12rem 0.45rem; border-radius: 5px; margin-left: 0.3rem; }
+  .date-line { font-size: 0.72rem; color: var(--text-dim); margin-top: 0.15rem; }
+
+  /* ---- Set browser ---- */
+  .set-browser { background: var(--parchment-deep); border-bottom: 1px solid var(--line); }
+  .set-browser-inner { max-width: 1060px; margin: 0 auto; padding: 1.8rem 1.5rem; }
+  .set-browser-head { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin: 0 0 1rem; }
+  .set-browser-heading { font-family: "Fraunces", Georgia, serif; font-size: 1.3rem; margin: 0; }
+  .set-browser-tools { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .set-browser-tools input, .set-browser-tools select {
+    border: 1px solid var(--line); background: var(--card-stock); color: var(--text);
+    padding: 0.45rem 0.7rem; border-radius: 7px; font: inherit; font-size: 0.88rem;
+  }
+  .set-browser-tools input { width: 180px; max-width: 100%; }
+  .set-tile-empty { grid-column: 1 / -1; color: var(--text-dim); font-size: 0.9rem; padding: 0.5rem 0; }
+  .set-tile-grid { display: flex; flex-direction: column; gap: 0.4rem; }
+  .era-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.55rem; padding: 0.2rem 0 0.9rem;
+  }
+  .era-all { padding-bottom: 0.4rem; }
+  .era-section { border-top: 1px solid var(--line); }
+  .era-head {
+    width: 100%; display: flex; align-items: baseline; gap: 0.7rem;
+    background: none; border: none; color: var(--text); cursor: pointer;
+    padding: 0.85rem 0 0.6rem; font: inherit; text-align: left;
+  }
+  .era-name { font-family: "Fraunces", Georgia, serif; font-size: 1.15rem; }
+  .era-total { font-size: 0.85rem; color: var(--brass-deep); font-weight: 600; }
+  .era-caret { margin-left: auto; color: var(--text-dim); font-size: 0.9rem; }
+  .set-tile {
+    background: var(--card-stock); border: 1px solid var(--line); border-radius: 8px;
+    padding: 0.6rem 0.75rem; cursor: pointer; text-align: left;
+    display: flex; flex-direction: column; gap: 0.15rem;
+    font: inherit; color: inherit;
+    transition: border-color 0.15s ease, transform 0.1s ease;
+  }
+  .set-tile:hover { border-color: var(--brass); }
+  .set-tile.active { background: var(--ink); color: var(--parchment); border-color: var(--ink); }
+  .set-tile.active .set-tile-meta { color: #c9cfdf; }
+  .set-tile-name { font-family: "Fraunces", Georgia, serif; font-size: 0.9rem; line-height: 1.25; }
+  .set-tile-meta { font-size: 0.78rem; color: var(--text-dim); }
+  .set-tile-value { font-weight: 600; color: var(--brass-deep); margin-top: 0.15rem; }
+  .set-tile.active .set-tile-value { color: var(--brass); }
+
+  /* ---- Bundles ---- */
+  .bundle-wrap { max-width: 1060px; margin: 1.6rem auto 0; padding: 0 1.5rem; }
+  .bundle-heading { font-family: "Fraunces", Georgia, serif; font-size: 1.4rem; margin: 0 0 0.8rem; }
+  .bundle-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .bundle-card {
+    background: var(--ink); color: var(--parchment);
+    border-radius: 12px; padding: 1.1rem 1.2rem;
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .bundle-title { font-family: "Fraunces", Georgia, serif; font-size: 1.15rem; margin: 0; }
+  .bundle-desc { font-size: 0.85rem; color: #c9cfdf; margin: 0; line-height: 1.4; }
+  .bundle-items { font-size: 0.8rem; color: #aeb6c9; margin: 0; line-height: 1.5; }
+  .bundle-price-row { display: flex; align-items: baseline; gap: 0.6rem; margin-top: 0.3rem; }
+  .bundle-price { font-family: "Fraunces", Georgia, serif; font-size: 1.3rem; color: var(--brass); }
+  .bundle-was { font-size: 0.85rem; color: #8b93a8; text-decoration: line-through; }
+  .bundle-save { font-size: 0.75rem; color: #8fb589; }
+  .bundle-add-btn {
+    margin-top: 0.4rem; border: 1px solid var(--brass); background: transparent; color: var(--brass);
+    padding: 0.5rem 0.8rem; border-radius: 7px; font: inherit; font-size: 0.85rem; cursor: pointer;
+  }
+  .bundle-add-btn.added { background: var(--brass); color: #1a1406; }
 
   /* ---- Catalog grid ---- */
   main { max-width: 1060px; margin: 0 auto; padding: 1.6rem 1.5rem 2rem; }
@@ -227,6 +307,13 @@
     padding: 0.2rem 0.5rem; border-radius: 99px;
     letter-spacing: 0.02em;
   }
+  .qty-badge {
+    position: absolute; top: 0.5rem; left: 0.5rem;
+    font-size: 0.68rem; font-weight: 600;
+    padding: 0.2rem 0.5rem; border-radius: 99px;
+    background: rgba(23,33,58,0.78); color: #f5efe2;
+  }
+  .tile-meta2 { font-size: 0.74rem; color: var(--text-dim); }
   .status-available { background: var(--moss-bg); color: var(--moss); }
   .status-sold { background: var(--rust-bg); color: var(--rust); }
   .status-hold { background: var(--hold-bg); color: var(--hold); }
@@ -386,13 +473,49 @@
   </div>
 </header>
 
+<section class="set-browser">
+  <div class="set-browser-inner">
+    <div class="set-browser-head">
+      <h2 class="set-browser-heading">Browse by set</h2>
+      <div class="set-browser-tools">
+        <input type="search" id="setSearch" placeholder="Find a set…">
+        <select id="setSort">
+          <option value="value-desc">Value high–low</option>
+          <option value="value-asc">Value low–high</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </div>
+    </div>
+    <div class="set-tile-grid" id="setTileGrid"></div>
+  </div>
+</section>
+
 <div class="controls">
   <div class="controls-bar">
     <input type="search" id="searchInput" placeholder="Search by name, set, or number…">
     <select id="setFilter"><option value="">All sets</option></select>
+    <div class="type-group" id="typeGroup">
+      <button class="active" data-type="all">All</button>
+      <button data-type="raw">Raw</button>
+      <button data-type="slab">Slabs</button>
+    </div>
     <button class="chip-toggle" id="availOnlyBtn">Available only</button>
+    <select id="sortSelect">
+      <option value="name">Sort: Name A–Z</option>
+      <option value="oldest" class="owner-only-opt">Sort: Oldest listed</option>
+      <option value="newest" class="owner-only-opt">Sort: Newest listed</option>
+      <option value="price-desc">Sort: Price high–low</option>
+      <option value="price-asc">Sort: Price low–high</option>
+    </select>
   </div>
 </div>
+
+<section id="bundleSection" style="display:none;">
+  <div class="bundle-wrap">
+    <h2 class="bundle-heading">Bundles</h2>
+    <div class="bundle-grid" id="bundleGrid"></div>
+  </div>
+</section>
 
 <main>
   <div class="grid" id="grid"></div>
@@ -470,6 +593,26 @@
       <button class="btn-ghost" id="downloadCatalogBtn">Download as file</button>
     </div>
     <div class="admin-msg" id="adminMsg"></div>
+
+    <hr style="border:none;border-top:1px solid var(--line);margin:1.2rem 0;">
+
+    <p><strong>Bundles.</strong> Paste a JSON array: each bundle needs <code>id</code>, <code>title</code>,
+      <code>description</code> (optional), <code>cardIds</code> (array of card ids from the catalog above),
+      and <code>price</code> (your bundle price). Ask Claude to build this for a set of slow-moving cards.</p>
+    <textarea id="bundleJson"></textarea>
+    <div class="order-actions">
+      <button class="btn-solid" id="saveBundlesBtn">Save bundles</button>
+      <button class="btn-ghost" id="clearBundlesBtn">Clear all bundles</button>
+    </div>
+    <div class="admin-msg" id="bundleAdminMsg"></div>
+
+    <hr style="border:none;border-top:1px solid var(--line);margin:1.2rem 0;">
+
+    <p><strong>Private view (this browser only).</strong> Shows you the date each card was listed and flags
+      slow movers — never shown to site visitors by default.</p>
+    <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;">
+      <input type="checkbox" id="showDatesToggle"> Show listing dates &amp; stale flags to me on this device
+    </label>
   </div>
 </details>
 
@@ -478,70 +621,4500 @@
   "use strict";
 
   var STORAGE_KEY = "grammercy_catalog_v1";
+  var BUNDLE_STORAGE_KEY = "grammercy_bundles_v1";
+  var SHOW_DATES_KEY = "grammercy_show_dates_v1";
+  var STALE_DAYS = 60;
+  var showDates = false;
+
+  function loadShowDates() {
+    try { showDates = localStorage.getItem(SHOW_DATES_KEY) === "1"; } catch (e) { showDates = false; }
+  }
+  function applyOwnerVisibility() {
+    var opts = document.querySelectorAll(".owner-only-opt");
+    opts.forEach(function (o) { o.style.display = showDates ? "" : "none"; });
+    if (!showDates) {
+      var sel = document.getElementById("sortSelect");
+      if (sel.value === "oldest" || sel.value === "newest") sel.value = "name";
+    }
+  }
+
+  function daysSince(dateStr) {
+    if (!dateStr) return null;
+    var then = new Date(dateStr + "T00:00:00");
+    if (isNaN(then.getTime())) return null;
+    var diff = Date.now() - then.getTime();
+    return Math.floor(diff / 86400000);
+  }
+
+  function formatDate(dateStr) {
+    if (!dateStr) return "";
+    var d = new Date(dateStr + "T00:00:00");
+    if (isNaN(d.getTime())) return dateStr;
+    return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  }
 
   var SAMPLE_DATA = [
-    {
-      id: "neo-destiny-dark-gengar-6-105",
-      name: "Dark Gengar",
-      set: "Neo Destiny",
-      number: "6/105",
-      edition: "Unlimited",
-      price: 985,
-      status: "available",
-      frontImg: "",
-      backImg: "",
-      notes: "Holo rare. Pricing cross-checked against TCGplayer and Collectr."
-    },
-    {
-      id: "base-set-charizard-4-102",
-      name: "Charizard",
-      set: "Base Set",
-      number: "4/102",
-      edition: "Unlimited",
-      price: 410,
-      status: "available",
-      frontImg: "",
-      backImg: ""
-    },
-    {
-      id: "jungle-vaporeon-12-64",
-      name: "Vaporeon",
-      set: "Jungle",
-      number: "12/64",
-      edition: "1st Edition",
-      price: 68,
-      status: "hold",
-      frontImg: "",
-      backImg: ""
-    },
-    {
-      id: "fossil-aerodactyl-1-62",
-      name: "Aerodactyl",
-      set: "Fossil",
-      number: "1/62",
-      edition: "Unlimited",
-      price: 54,
-      status: "sold",
-      frontImg: "",
-      backImg: ""
-    },
-    {
-      id: "team-rocket-dark-blastoise-3-82",
-      name: "Dark Blastoise",
-      set: "Team Rocket",
-      number: "3/82",
-      edition: "Unlimited",
-      price: 142,
-      status: "available",
-      frontImg: "",
-      backImg: ""
-    }
-  ];
+  {
+    "id": "4dd626796be849b49eef19927a7a8f67",
+    "name": "Abomasnow",
+    "set": "Astral Radiance",
+    "number": "TG01/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.29,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "0adab539527a485fa8197ec2174f08a9",
+    "name": "Absol ex",
+    "set": "Obsidian Flames",
+    "number": "214/197",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.05,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "44ce8293947f465ab47fc86cf1ee3134",
+    "name": "Absol ex",
+    "set": "Obsidian Flames",
+    "number": "135/197",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.64,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "39f74057f88e49e1808d06d3d40d608c",
+    "name": "Aerodactyl V",
+    "set": "Lost Origin",
+    "number": "092/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.84,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "75f94803410144b09dad180e2462a611",
+    "name": "Alakazam \u2606",
+    "set": "EX Crystal Guardians",
+    "number": "99/100",
+    "rarity": "Gold Star",
+    "grade": "BGS 6 EX-MT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 2976.0,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-10-03"
+  },
+  {
+    "id": "81888a944a3b4176a46454aa2ab73260",
+    "name": "Ampharos",
+    "set": "Chaos Rising",
+    "number": "090/086",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 4.73,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "fc4a07ffa15f4d9594d1f478ba5dbb23",
+    "name": "Arbok ex",
+    "set": "Scarlet & Violet 151",
+    "number": "024/165",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.38,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "570fd3a519b14581bbb61a3b30b55807",
+    "name": "Arcanine ex",
+    "set": "Scarlet & Violet",
+    "number": "224/198",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 14.18,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "e28fea203daf4417b26d4fe8e0a2adc2",
+    "name": "Archaludon ex",
+    "set": "Surging Sparks",
+    "number": "224/191",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.95,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "1867f2b8f939421db0aa64ad7a70bb56",
+    "name": "Armarouge",
+    "set": "Pitch Black",
+    "number": "086/084",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.41,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "0b6b08026cc84b97b972c16b9ceb1dd8",
+    "name": "Armarouge (Alternate Art)",
+    "set": "Scarlet & Violet",
+    "number": "203/198",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 13.09,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "4a820587685a4ce79b099d8e73b4cc1d",
+    "name": "Articuno",
+    "set": "Journey Together",
+    "number": "161/159",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 13.74,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "ad5224f5702b4a7b9530a76130a619fa",
+    "name": "Articuno",
+    "set": "30th Anniversary Celebration",
+    "number": "132/128",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 7.93,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-09-27"
+  },
+  {
+    "id": "08ab151b99df4f989762590ccfb09d97",
+    "name": "Aurorus",
+    "set": "Perfect Order",
+    "number": "092/088",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.27,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "7b3c50e7a70844bea5bcf85126696f7d",
+    "name": "Banette",
+    "set": "Lost Origin",
+    "number": "TG07/TG30",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.81,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "c588ff1eb15c4a558e58f47f1a3af952",
+    "name": "Beautifly",
+    "set": "Ascended Heroes",
+    "number": "219/217",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 5.44,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "e97f4a6a4b594ce8b23e009f83028ce7",
+    "name": "Beedrill V",
+    "set": "Astral Radiance",
+    "number": "001/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.94,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "c6c4f511c7ac485196b7ffb6f1200f35",
+    "name": "Blaine",
+    "set": "Gym Challenge Unlimited",
+    "number": "100/132",
+    "rarity": "Rare",
+    "grade": "PSA 9 MINT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 30.0,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "5a045a638b20499c84ada81158e630b4",
+    "name": "Blaine's Moltres",
+    "set": "Gym Heroes Unlimited",
+    "number": "1/132",
+    "rarity": "Holo Rare",
+    "grade": "BGS 9 MINT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 341.52,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "81ab5df03e6f4f6db3a4f569d54dd5ac",
+    "name": "Blastoise",
+    "set": "EX Crystal Guardians",
+    "number": "14/100",
+    "rarity": "Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 20.47,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9ab7edaed3a64bb38847766a013179e0",
+    "name": "Blastoise",
+    "set": "Celebrations",
+    "number": "2/102",
+    "rarity": "Holo Rare",
+    "grade": "PSA 9 MINT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 39.47,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "475024f54b454426a4409429a91ad69e",
+    "name": "Blastoise",
+    "set": "Celebrations",
+    "number": "2/102",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 14.07,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "99dc9fb9692c440d931dea65a18cd67e",
+    "name": "Bronzong",
+    "set": "Astral Radiance",
+    "number": "TG11/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.21,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "6d6abd502e68400bb01dc4ae4d049b8e",
+    "name": "Bulbasaur",
+    "set": "Mega Evolution Base Set",
+    "number": "133/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 17.82,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "e5d42bdaa8bc408084c45e3012651b66",
+    "name": "Bulbasaur (Mega Evolution Stamped)",
+    "set": "Mega Evolution Base Set",
+    "number": "133/132",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 15.59,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "c28b896116704c418dc97f7b177926bf",
+    "name": "Bulbasaur (Mega Evolution Stamped)",
+    "set": "Mega Evolution Base Set",
+    "number": "133/132",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 4,
+    "price": 15.59,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "759ed7ab8d164691b3cb65e14fbef6b3",
+    "name": "Castform",
+    "set": "Lost Origin",
+    "number": "TG11/TG30",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.11,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "56e502b4d510429a92ea558c1579565d",
+    "name": "Celebi",
+    "set": "Neo Revelation Unlimited",
+    "number": "3/64",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 139.01,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "2ece6e5150a3454a9478e00265eb01bb",
+    "name": "Chandelure",
+    "set": "30th Anniversary Celebration",
+    "number": "137/128",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.0,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-09-27"
+  },
+  {
+    "id": "95d28eb911fd47bca013960f1e6d3a50",
+    "name": "Charizard (Cracked Ice Holo) (Prize Pack)",
+    "set": "Prize Pack Series Cards",
+    "number": "025/185",
+    "rarity": "Holo Rare",
+    "grade": "PSA 9 MINT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 31.3,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "2681da775b144bf7bbe0c85095daebdd",
+    "name": "Charizard (Premium Collection)",
+    "set": "Celebrations",
+    "number": "4",
+    "rarity": "Metal Card",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 326.77,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "f28bf24ea5394dc79d2c60b77fb2d2e8",
+    "name": "Charizard VMAX (Alternate Art)",
+    "set": "SWSH Black Star Promos",
+    "number": "SWSH261",
+    "rarity": "Promo",
+    "grade": "BGS 9 MINT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 65.26,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "36bd3c445cc2475e9eb6642fbd308f6f",
+    "name": "Charizard ex",
+    "set": "Obsidian Flames",
+    "number": "223/197",
+    "rarity": "Special Illustration Rare",
+    "grade": "CGC 10 Gem Mint",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 279.0,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "994efccd58e14ba7ae085f6577b1bf15",
+    "name": "Chimchar",
+    "set": "ME Black Star Promos",
+    "number": "041",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 5.85,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "60f5e385585d48d5b44ad3ffe4c98dfe",
+    "name": "Cinderace V",
+    "set": "Fusion Strike",
+    "number": "043/264",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.64,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "c34618c56411446694bb30d4967567ac",
+    "name": "Clawitzer",
+    "set": "Mega Evolution Base Set",
+    "number": "141/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 1.73,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "f22a8e94494f4dfc899b618ddc2b92cc",
+    "name": "Clefairy",
+    "set": "Perfect Order",
+    "number": "094/088",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 13.69,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "acc0b2c7f18a456eb3860f33c920d4b8",
+    "name": "Cobalion ex",
+    "set": "Chaos Rising",
+    "number": "064/086",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 0.42,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "0096186c87c34e37932b0eb32c19d6d0",
+    "name": "Crabominable V",
+    "set": "Start Deck 100",
+    "number": "112/414",
+    "rarity": "No Rarity",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.99,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "c63b80b5a6cf4a3c84c5803a42674f8e",
+    "name": "Cynthia's Garchomp ex",
+    "set": "Hot Wind Arena",
+    "number": "080/063",
+    "rarity": "Super Rare",
+    "grade": "PSA 10 GEM-MT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 45.0,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "59e6cb19589b4470960ef8aac338e2f9",
+    "name": "Dark Alakazam",
+    "set": "Team Rocket 1st Edition",
+    "number": "18/82",
+    "rarity": "Rare",
+    "grade": "CGC 8.5 NM/Mint+",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 72.97,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "200c5a3271b74e15aa91abd2db79562e",
+    "name": "Dark Gyarados",
+    "set": "Celebrations",
+    "number": "8/82",
+    "rarity": "Holo Rare",
+    "grade": "PSA 10 GEM-MT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 87.33,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "71a2aee3b5a7463b89882498bceb9d27",
+    "name": "Dark Gyarados",
+    "set": "Team Rocket Unlimited",
+    "number": "25/82",
+    "rarity": "Rare",
+    "grade": "Moderately Played",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 11.07,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-09-28"
+  },
+  {
+    "id": "6f14ba6f567c439a8ec25f69eab96ad9",
+    "name": "Dark Gyarados",
+    "set": "Celebrations",
+    "number": "8/82",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.99,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "f6bb1af0a7354caeb8ca626394d9ea13",
+    "name": "Darkrai VSTAR",
+    "set": "Astral Radiance",
+    "number": "099/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 2.64,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "948243be079e42f38dd5c0d13ce6f534",
+    "name": "Decidueye ex",
+    "set": "Perfect Order",
+    "number": "012/088",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.42,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "67e3be8e22394189b102f87c88b2f944",
+    "name": "Decidueye ex",
+    "set": "Obsidian Flames",
+    "number": "015/197",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.98,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "358d970018264c6789780043cd446b8b",
+    "name": "Dedenne",
+    "set": "Perfect Order",
+    "number": "093/088",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 4.92,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "6313433927684f5d8beefb0bad08c693",
+    "name": "Delibird",
+    "set": "Mega Evolution Base Set",
+    "number": "152/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.61,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "f598d5e7b8c04c5f94a0726f3a874b08",
+    "name": "Delphox V",
+    "set": "Lost Origin",
+    "number": "173/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.2,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "ad97df2224ac473990ee033793529543",
+    "name": "Deoxys",
+    "set": "VSTAR Universe",
+    "number": "185/172",
+    "rarity": "Art Rare (AR)",
+    "grade": "CGC 10 Pristine",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 43.91,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "d19302494b8d4ad39e120e0c46bce9f8",
+    "name": "Destined Rivals Booster Box",
+    "set": "Destined Rivals",
+    "number": "",
+    "rarity": "Sealed",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 398.3,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "836186226e324fcd9920831e6e0b0626",
+    "name": "Dondozo",
+    "set": "Scarlet & Violet",
+    "number": "207/198",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 12.92,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "0e7f45bc8bf24b9c8d63230c1ffa7fe7",
+    "name": "Doublade",
+    "set": "Perfect Order",
+    "number": "098/088",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 1.73,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "3edc820701d34e4faa5b796e1d1a9e2f",
+    "name": "Dragapult ex",
+    "set": "Ascended Heroes",
+    "number": "160/217",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.02,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "e148d88b507b49f7973f48185c038039",
+    "name": "Dragonite ex",
+    "set": "Obsidian Flames",
+    "number": "159/197",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.53,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "2203a80c5f1c42a8adc737ab9fae564d",
+    "name": "Drapion V",
+    "set": "Lost Origin",
+    "number": "118/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.61,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "ab4ccf32f2fb46e1ac5c9cfdf4b84c41",
+    "name": "Drapion VSTAR",
+    "set": "Lost Origin",
+    "number": "119/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 0.87,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b7d21d77cbe34bf08d57585ae4fe56b9",
+    "name": "Dratini",
+    "set": "Base Set Unlimited",
+    "number": "26/102",
+    "rarity": "Uncommon",
+    "grade": "PSA 10 GEM-MT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 214.03,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "7c12bee381db420999b80e8156c99dbc",
+    "name": "Dudunsparce ex",
+    "set": "Journey Together",
+    "number": "178/159",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.12,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "f96ee83130e5491bbfad506a5554fbcc",
+    "name": "Eiscue ex",
+    "set": "Obsidian Flames",
+    "number": "210/197",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.41,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "1b3a3b56dccf44a0ab5bfabb2ac4675c",
+    "name": "Enamorus V",
+    "set": "Lost Origin",
+    "number": "082/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.81,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "5ecd5e9df07f43b78e04d0091fde15d7",
+    "name": "Entei",
+    "set": "Wizards Black Star Promos",
+    "number": "34",
+    "rarity": "Promo",
+    "grade": "CGC 10 Gem Mint",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 152.16,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "4e4b64d7a92d4e0b82fd377f89c30c0d",
+    "name": "Espurr",
+    "set": "Perfect Order",
+    "number": "095/088",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.3,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "54d416286c794c5b922026483cd1c220",
+    "name": "Eternatus VMAX",
+    "set": "Lost Origin",
+    "number": "TG22/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 13.69,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9d20d4f5a40741c987271c07c337cbad",
+    "name": "Excadrill ex",
+    "set": "Black Bolt",
+    "number": "046/086",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.46,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "d20586907716464093e8bb4e9ff0fb53",
+    "name": "Exeggutor",
+    "set": "Mega Evolution Base Set",
+    "number": "135/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.69,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "e643562ca69d4a0495b5c7eab2185ebf",
+    "name": "Falinks",
+    "set": "Astral Radiance",
+    "number": "TG07/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 3.66,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "770633a34e81453ca6a87ae5f2810a34",
+    "name": "Fezandipiti",
+    "set": "Shrouded Fable",
+    "number": "073/064",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 10.69,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "8fb6426dfc5f494282ba94f1a8185104",
+    "name": "Fezandipiti ex",
+    "set": "Shrouded Fable",
+    "number": "038/064",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.72,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "f8f1f136e55441cc9b42ea27955ecc5a",
+    "name": "Fidough",
+    "set": "Scarlet & Violet",
+    "number": "213/198",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 21.95,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "aa9afb3852d743188276367398fe5274",
+    "name": "Flapple",
+    "set": "Astral Radiance",
+    "number": "TG02/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.69,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "a89d6cc73a37427db46e3139b05f9e74",
+    "name": "Flying Pikachu V",
+    "set": "Celebrations",
+    "number": "006/025",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.59,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "cdc8217645094e9990394f19d7adf8a3",
+    "name": "Fomantis",
+    "set": "Pitch Black",
+    "number": "085/084",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.98,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "387010af26474dfc947c5de8d7024520",
+    "name": "Foongus",
+    "set": "Black Bolt",
+    "number": "095/086",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 16.5,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "8cbe075e5c424f3382d3a4aad8c96b9a",
+    "name": "Frosmoth",
+    "set": "Astral Radiance",
+    "number": "TG04/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.07,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "04ef49fb956749ee8d0a90dadc3cf24e",
+    "name": "Galarian Mr. Rime V",
+    "set": "Astral Radiance",
+    "number": "049/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.92,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9c6c0333d74f4f9cb076c049c9ee6403",
+    "name": "Galarian Obstagoon",
+    "set": "Astral Radiance",
+    "number": "TG10/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.25,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "2b28bed5fb034016a31567c05bb170bf",
+    "name": "Galarian Perrserker V",
+    "set": "Lost Origin",
+    "number": "183/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.94,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "a178f7d2e72143b890584ef9e9b85b41",
+    "name": "Galarian Perrserker V",
+    "set": "Lost Origin",
+    "number": "129/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.75,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b23a94be5c5b479eac4e48d68982f33f",
+    "name": "Galarian Zapdos V",
+    "set": "Astral Radiance",
+    "number": "TG19/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 13.87,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "aa61bb01da02405194d64067270da2e3",
+    "name": "Garchomp V",
+    "set": "Astral Radiance",
+    "number": "178/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 10.33,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "e09360db28dd4c9bbc204bc3cb3253ac",
+    "name": "Garchomp V",
+    "set": "Astral Radiance",
+    "number": "117/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.34,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "3fcd99ece7c742f6a7e3f43355ed2e02",
+    "name": "Gardevoir",
+    "set": "EX Ruby & Sapphire",
+    "number": "7/109",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 106.3,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "958a52ca1c76481a922ffdf2e9735692",
+    "name": "Gardevoir",
+    "set": "Astral Radiance",
+    "number": "TG05/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 6.53,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "f3a5bf2161fd49d8b52ec3d41aa2c31a",
+    "name": "Gardevoir ex",
+    "set": "Scarlet & Violet",
+    "number": "086/198",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.75,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "37c01c9ed69f4743bc72b617de25646d",
+    "name": "Genesect V",
+    "set": "Fusion Strike",
+    "number": "185/264",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.97,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "5abb2bf44e59420bbbddcf04591b256a",
+    "name": "Genesect ex",
+    "set": "Black Bolt",
+    "number": "161/086",
+    "rarity": "Secret Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.85,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "dd30e5c6f0094cc48b4e51090db9dc01",
+    "name": "Genesect ex",
+    "set": "Black Bolt",
+    "number": "169/086",
+    "rarity": "Special Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 42.45,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "46f87a4fcc404d16a1437fc81f159068",
+    "name": "Gengar",
+    "set": "Chilling Reign",
+    "number": "057/198",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.43,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "1b2c4346275a4ff1968a86e2ecab4302",
+    "name": "Gengar",
+    "set": "Perfect Order",
+    "number": "050/088",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.57,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "0ca8660374b54dc49a5a750e647957fc",
+    "name": "Gengar VMAX",
+    "set": "Fusion Strike",
+    "number": "157/264",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 41.12,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "8a09916ef4974c01a83ba7d79381a725",
+    "name": "Giratina V",
+    "set": "Lost Origin",
+    "number": "130/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.09,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b983bcb143704a618dce2ace20d1f6f9",
+    "name": "Giratina VSTAR",
+    "set": "Lost Origin",
+    "number": "131/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.88,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "99ef527e13814987848317862e2e72e3",
+    "name": "Gloom",
+    "set": "Obsidian Flames",
+    "number": "198/197",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 17.13,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9d0af002ed8d45abbd1987b4d6124783",
+    "name": "Golem ex",
+    "set": "Scarlet & Violet 151",
+    "number": "076/165",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.12,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "e6c18d09ba1c4c55b94c851070fe059d",
+    "name": "Gumshoos",
+    "set": "Mega Evolution Base Set",
+    "number": "153/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.78,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "1beca558fee7404fa82ae672c81fba4f",
+    "name": "Gyarados",
+    "set": "EX Holon Phantoms",
+    "number": "8/110",
+    "rarity": "Holo Rare",
+    "grade": "BGS 8 NM-MT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 573.58,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "d89b321dfb8c4c2db30da47975b7f991",
+    "name": "Gyarados ex",
+    "set": "Scarlet & Violet",
+    "number": "045/198",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.78,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9bb7b2192b46468c92c36a15625f406d",
+    "name": "Heatran V",
+    "set": "Astral Radiance",
+    "number": "025/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 1.06,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "65e6d9ebde894891a4865bb03f36c240",
+    "name": "Helioptile",
+    "set": "Mega Evolution Base Set",
+    "number": "143/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.17,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "4718a8e6e46b479c9ab5b1356c259f15",
+    "name": "Hisuian Arcanine",
+    "set": "Lost Origin",
+    "number": "TG08/TG30",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.86,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "1dd75ca5204e49a8ae449478443ea852",
+    "name": "Hisuian Decidueye VSTAR",
+    "set": "Astral Radiance",
+    "number": "084/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.42,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "5bac89fc17a74dc68dd2966bb96a374a",
+    "name": "Hisuian Electrode V",
+    "set": "Lost Origin",
+    "number": "172/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.5,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "f17f8c1a7a7a44379603e589735621f2",
+    "name": "Hisuian Goodra V",
+    "set": "Lost Origin",
+    "number": "135/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.73,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "c63b4f7bcf39412c95ae0fb61c2f6034",
+    "name": "Hisuian Lilligant VSTAR",
+    "set": "Astral Radiance",
+    "number": "190/189",
+    "rarity": "Rainbow Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 8.02,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "82cfb219ade7420bb459db938f78a59a",
+    "name": "Hisuian Samurott V",
+    "set": "Astral Radiance",
+    "number": "101/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.84,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "4356be9c878848a18de034116030025d",
+    "name": "Hisuian Samurott VSTAR",
+    "set": "Astral Radiance",
+    "number": "102/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.41,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "0206089399f64ea0bd995536cb6ec5b1",
+    "name": "Hisuian Sneasler V",
+    "set": "Astral Radiance",
+    "number": "094/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.9,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "7a568dab79774f05bfcc9913872b07a5",
+    "name": "Hisuian Zoroark VSTAR",
+    "set": "Lost Origin",
+    "number": "147/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 1.25,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "98293feee2ee48809b3d771567343e18",
+    "name": "Ho-Oh",
+    "set": "Call of Legends",
+    "number": "9/95",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 39.25,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "6e1ffe496d4a4e929535587e146805cf",
+    "name": "Ho-oh",
+    "set": "Neo Revelation 1st Edition",
+    "number": "7/64",
+    "rarity": "Holo Rare",
+    "grade": "BGS 8.5 NM-MT+",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 1902.04,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "f80a20e95d7f44018cabfe2cc161226f",
+    "name": "Hoothoot",
+    "set": "Astral Radiance",
+    "number": "TG12/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 6.38,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "e184845365134f688de49ca7f2169790",
+    "name": "Houndstone",
+    "set": "Mega Evolution Base Set",
+    "number": "145/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 2.92,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "59cfd6354fc14d1ab7c38dcc48d12e09",
+    "name": "Ice Rider Calyrex V",
+    "set": "Astral Radiance",
+    "number": "TG14/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 8.76,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "46225a48085b452386924a4c04a3bceb",
+    "name": "Ice Rider Calyrex VMAX",
+    "set": "Astral Radiance",
+    "number": "TG15/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 9.57,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "3030a92b071e42a884098be095b02298",
+    "name": "Inteleon VMAX",
+    "set": "Fusion Strike",
+    "number": "079/264",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.73,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b51dc794c17a438cb1a1a06e6774e95b",
+    "name": "Iono's Bellibolt ex",
+    "set": "Ascended Heroes",
+    "number": "070/217",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.62,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "433534ee54374d58aea2fde499f57080",
+    "name": "Iono's Bellibolt ex",
+    "set": "Journey Together",
+    "number": "183/159",
+    "rarity": "Special Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 29.74,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "605b43dcbabe4ef5bc4c0d2c74755556",
+    "name": "Ivysaur",
+    "set": "Mega Evolution Base Set",
+    "number": "134/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 15.74,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "3ca131d0a456435d9509cce356b2c905",
+    "name": "Jynx",
+    "set": "Expansion Pack (Base Set)",
+    "number": "No. 124",
+    "rarity": "Uncommon",
+    "grade": "PSA 9 MINT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 169.0,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-10-04"
+  },
+  {
+    "id": "dd57887857f34d13b4af0462a1624838",
+    "name": "Kingdra",
+    "set": "Astral Radiance",
+    "number": "TG03/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 9.86,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9b7a1e3a96e14c7caa31a059ca237189",
+    "name": "Kingdra ex",
+    "set": "SV Black Star Promos",
+    "number": "131",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 76.94,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-09-27"
+  },
+  {
+    "id": "44102d6259ef4523817b242e3cd6efbc",
+    "name": "Kleavor",
+    "set": "Astral Radiance",
+    "number": "TG08/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.04,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9e34421bd82b457da22c44253c457d14",
+    "name": "Kleavor V",
+    "set": "Astral Radiance",
+    "number": "087/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.69,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "a98f6091ec004319b1f410b1132ec0e8",
+    "name": "Koraidon ex",
+    "set": "Scarlet & Violet",
+    "number": "125/198",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.6,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "a7b9d5dad19745108dfa5b72aea775fe",
+    "name": "Kyurem V",
+    "set": "Lost Origin",
+    "number": "048/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 0.76,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "6ca5b6b5090c4478b296a87ca26c0838",
+    "name": "Kyurem ex",
+    "set": "Black Bolt",
+    "number": "165/086",
+    "rarity": "Special Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 68.48,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9260c72ed8d242f4a9c40eaae733f025",
+    "name": "Lapras ex",
+    "set": "Perfect Order",
+    "number": "022/088",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 0.55,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "18dd9da3353646bcb41a4a5ece37b475",
+    "name": "Larry's Staraptor",
+    "set": "Ascended Heroes",
+    "number": "249/217",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.2,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "e41ce00b20004839bc4ed2ae97aaf4d7",
+    "name": "Litleo",
+    "set": "Mega Evolution Base Set",
+    "number": "139/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.28,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "ebe4ffbff05d4b5d9b2b71d29b48f22a",
+    "name": "Lucario V",
+    "set": "Astral Radiance",
+    "number": "078/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.6,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "548b1dfc3f5b4e68b0b57e4f6ea58b87",
+    "name": "Luxray V",
+    "set": "Astral Radiance",
+    "number": "050/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.7,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "587fdb3147d848239ddfb77842050b14",
+    "name": "Luxray V",
+    "set": "Astral Radiance",
+    "number": "168/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 6.09,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "06108e3878824ff2bfd91edb2a85f712",
+    "name": "M Rayquaza-EX",
+    "set": "Celebrations",
+    "number": "76/108",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 34.33,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "aeba9f10fb874a089ea30aed4ad2ff9e",
+    "name": "M Rayquaza-EX",
+    "set": "Roaring Skies",
+    "number": "105/108",
+    "rarity": "Ultra Rare",
+    "grade": "Moderately Played",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 413.03,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "6d2fad8faada437185f827ea2f1e2938",
+    "name": "M Rayquaza-EX",
+    "set": "Ancient Origins",
+    "number": "98/98",
+    "rarity": "Secret Rare",
+    "grade": "BGS 8 NM-MT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 1152.0,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b339b733c61b4303bcd9d0ac10189981",
+    "name": "Machamp VMAX",
+    "set": "Astral Radiance",
+    "number": "073/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 7.12,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "ab8d94172d1347829c70a4e5c5b2b1b0",
+    "name": "Magikarp & Wailord-GX",
+    "set": "SM Black Star Promos",
+    "number": "SM166",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 192.24,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "7d53767532de4c51a51b4a137cab2d1c",
+    "name": "Magnezone V",
+    "set": "Lost Origin",
+    "number": "056/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 0.64,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9dba6601511745459d57f98822caeb21",
+    "name": "Magnezone V",
+    "set": "Lost Origin",
+    "number": "175/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 1.89,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "5c29274dc3c24c9c8a2c3aead01b27b2",
+    "name": "Magnezone ex",
+    "set": "Scarlet & Violet",
+    "number": "065/198",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.68,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "bf5570ebdfd54fd39c7bd16902bec833",
+    "name": "Mandibuzz ex",
+    "set": "Ascended Heroes",
+    "number": "139/217",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.55,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "de182a8b272f4a2db60ec08330fc464a",
+    "name": "Manectric",
+    "set": "Pitch Black",
+    "number": "089/084",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.8,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "13b382b6346b443dad587e9bf7252e33",
+    "name": "Marill",
+    "set": "Southern Islands",
+    "number": "11/18",
+    "rarity": "No Rarity",
+    "grade": "BGS 8.5 NM-MT+",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 582.67,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9c2602e49b614405965690d1fa832926",
+    "name": "Marshadow",
+    "set": "Mega Evolution Base Set",
+    "number": "146/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 9.74,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "db213b07134342b19259949488607e1e",
+    "name": "Medicham",
+    "set": "Ascended Heroes",
+    "number": "241/217",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.8,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "ff95610c043949a887f7c720df4c5654",
+    "name": "Mega Abomasnow ex",
+    "set": "Mega Evolution Base Set",
+    "number": "157/132",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.72,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "ad51f287805140e0b3d030c270242df3",
+    "name": "Mega Abomasnow ex",
+    "set": "Mega Evolution Base Set",
+    "number": "036/132",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.49,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "cb9225dd441f4f7eb48c0e9d5d446f9d",
+    "name": "Mega Absol ex",
+    "set": "Mega Evolution Base Set",
+    "number": "086/132",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.57,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "c0417b61b1e840428e3a1474fecd47e3",
+    "name": "Mega Absol ex",
+    "set": "Mega Evolution Base Set",
+    "number": "161/132",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.46,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "dad885b73b8841f0ad0badd475832985",
+    "name": "Mega Camerupt ex",
+    "set": "Mega Evolution Base Set",
+    "number": "022/132",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.47,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "4184c4676e7245f69892fffc7ea85a94",
+    "name": "Mega Charizard X ex",
+    "set": "ME Black Star Promos",
+    "number": "023",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 25.17,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "49d3a97ff16c471689535e0b5793d793",
+    "name": "Mega Charizard X ex",
+    "set": "Phantasmal Flames",
+    "number": "013/094",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.17,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "7787204e2e8d4bd3bf0077c73b97b5c6",
+    "name": "Mega Clefable ex",
+    "set": "Perfect Order",
+    "number": "031/088",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.52,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "289a4e0b46dc4b8aae27bbe773ec7be2",
+    "name": "Mega Clefable ex",
+    "set": "Perfect Order",
+    "number": "103/088",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.33,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "e58a706f12454470bdad57b7dadb632b",
+    "name": "Mega Emboar ex",
+    "set": "Ascended Heroes",
+    "number": "031/217",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.63,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "f83c0fa36eab40bca1d542619760b011",
+    "name": "Mega Evolution Enhanced Booster Box",
+    "set": "Mega Evolution Base Set",
+    "number": "",
+    "rarity": "Sealed",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 289.13,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9e01b7c6eef849fd84750753f06cc5a2",
+    "name": "Mega Froslass ex",
+    "set": "Ascended Heroes",
+    "number": "265/217",
+    "rarity": "Mega Attack Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 6.69,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "1e5cef06c96548459b397f1ff095b930",
+    "name": "Mega Froslass ex",
+    "set": "Ascended Heroes",
+    "number": "047/217",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.68,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "81630b6652574da49746e506571d44d5",
+    "name": "Mega Gardevoir",
+    "set": "Mega Symphonia",
+    "number": "042/063",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 0.4,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "bd1bb693005f4701a5159517b255f12b",
+    "name": "Mega Gardevoir ex",
+    "set": "ME Black Star Promos",
+    "number": "032",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 5.71,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "5bdaf30a08384f6e8212236fdfbab610",
+    "name": "Mega Gardevoir ex",
+    "set": "Mega Evolution Base Set",
+    "number": "159/132",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 5.05,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "77109cb4b4c4453c9efeb3aff04ef393",
+    "name": "Mega Greninja ex",
+    "set": "Chaos Rising",
+    "number": "022/086",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.72,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "4244c2363966416c819522b35adc3385",
+    "name": "Mega Kangaskhan ex",
+    "set": "Mega Evolution Base Set",
+    "number": "104/132",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.24,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "efa9b83275504ed79f451ab35d92bdc4",
+    "name": "Mega Latias ex",
+    "set": "Mega Evolution Base Set",
+    "number": "100/132",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.54,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "29810fcf39c144eeb5f0b6e8b077738a",
+    "name": "Mega Latias ex",
+    "set": "Mega Evolution Base Set",
+    "number": "163/132",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.25,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "1bb77f8044af47d1b8da3aec90f039ab",
+    "name": "Mega Lucario ex",
+    "set": "Ascended Heroes",
+    "number": "113/217",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.9,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "27423beb21c646ebb69e386b1621af74",
+    "name": "Mega Lucario ex",
+    "set": "Mega Evolution Base Set",
+    "number": "160/132",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 10.79,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "f77067e6dbe94fa6a2cf199793c7f143",
+    "name": "Mega Lucario ex",
+    "set": "Mega Evolution Base Set",
+    "number": "077/132",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 0.7,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "0bd6ac6c9025485f950defb414b91090",
+    "name": "Mega Manectric ex",
+    "set": "Mega Evolution Base Set",
+    "number": "050/132",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 3,
+    "price": 0.49,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "5427f7d9e7e341cf8e7e78b7b5989931",
+    "name": "Mega Mawile ex",
+    "set": "Mega Evolution Base Set",
+    "number": "094/132",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.54,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "221663566de14cf4a7067fd4dc67c269",
+    "name": "Mega Mawile ex",
+    "set": "Mega Evolution Base Set",
+    "number": "162/132",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.1,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "da04b9aaca104479b47ec7f96c5d1f7c",
+    "name": "Mega Sharpedo ex",
+    "set": "Phantasmal Flames",
+    "number": "113/094",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.92,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "34886421489a4939bfe4f7a52805cf78",
+    "name": "Mega Skarmory ex",
+    "set": "Perfect Order",
+    "number": "055/088",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.52,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "ebf0902a902443b1b78f755db62914f8",
+    "name": "Mega Starmie ex",
+    "set": "Perfect Order",
+    "number": "118/088",
+    "rarity": "Special Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 30.76,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "d61fd8311cba480397c53af6eeac38f2",
+    "name": "Mega Venusaur ex",
+    "set": "Mega Evolution Base Set",
+    "number": "155/132",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 10.88,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "5cac4b8f08744d41b8e12cc7dbf01bd3",
+    "name": "Mega Venusaur ex",
+    "set": "Mega Evolution Base Set",
+    "number": "177/132",
+    "rarity": "Special Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 131.96,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "109766164014495dbeb2a9ffda5805ea",
+    "name": "Mega Venusaur ex",
+    "set": "Mega Evolution Base Set",
+    "number": "003/132",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 4,
+    "price": 0.9,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9d973a6afe1b4579a6b96d964c120373",
+    "name": "Mega Zygarde ex",
+    "set": "Perfect Order",
+    "number": "124/088",
+    "rarity": "Mega Hyper Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 93.16,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "2d3c2e4dfd5c4a888851d50e0c5814b9",
+    "name": "Mega Zygarde ex",
+    "set": "Perfect Order",
+    "number": "047/088",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.56,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "16d7aac0b7d946758d81dd24616fa8c6",
+    "name": "Meowth",
+    "set": "Phantasmal Flames",
+    "number": "106/094",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 4,
+    "price": 13.6,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b83ee64504374101bf4ceb58e5b113f2",
+    "name": "Meowth ex",
+    "set": "Perfect Order",
+    "number": "107/088",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 11.34,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "d01dfaa28db94405aaa9b66c27bd0e98",
+    "name": "Meowth ex",
+    "set": "Perfect Order",
+    "number": "062/088",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.42,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9cc02a60f94148c689ecb556a2296928",
+    "name": "Mew",
+    "set": "Celebrations",
+    "number": "011/025",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 2.59,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b40b51a1f21a495c877e838e12fb3512",
+    "name": "Mew",
+    "set": "Triumphant",
+    "number": "97/102",
+    "rarity": "Ultra Rare",
+    "grade": "BGS 8.5 NM-MT+",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 1593.15,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "62fb8ec1798c4c2d9a5fc053e2dd1c51",
+    "name": "Mew V",
+    "set": "Fusion Strike",
+    "number": "113/264",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.54,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b34a3080d4bd4517bd0bb0ea358f10d4",
+    "name": "Mew VMAX",
+    "set": "Fusion Strike",
+    "number": "114/264",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 15.56,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "541ca00b497d48a285886c1303eb8152",
+    "name": "Mew ex",
+    "set": "SV Black Star Promos",
+    "number": "053",
+    "rarity": "Promo",
+    "grade": "BGS 9 MINT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 95.27,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "2a1b30c8c64040d293552426ac0f0da2",
+    "name": "Mew ex",
+    "set": "Scarlet & Violet 151",
+    "number": "193/165",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 28.72,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "c351e837442e438c96c70ff9f9beff05",
+    "name": "Mew ex",
+    "set": "SV Black Star Promos",
+    "number": "053",
+    "rarity": "Promo",
+    "grade": "CGC 10 Gem Mint",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 220.37,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "1fc69c4951914acd8a3bdc98dbfdc667",
+    "name": "Mew \u2606",
+    "set": "EX Dragon Frontiers",
+    "number": "101/101",
+    "rarity": "Gold Star",
+    "grade": "BGS 6 EX-MT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 6912.0,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "754acd79a8d84582ae154976c50f14a0",
+    "name": "Mewtwo \u2606",
+    "set": "EX Holon Phantoms",
+    "number": "103/110",
+    "rarity": "Gold Star",
+    "grade": "BGS 8 NM-MT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 12316.68,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "4daa5b0dd7d5462d9de7ee3611b589d7",
+    "name": "Mightyena",
+    "set": "Ascended Heroes",
+    "number": "243/217",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 5.65,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9ca0844cad724037bda8b84ed14cbf26",
+    "name": "Mimikyu V",
+    "set": "Brilliant Stars",
+    "number": "TG16/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "BGS 9 MINT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 99.22,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "77c6924e236b477b950a76a7250659f5",
+    "name": "Miraidon ex",
+    "set": "Ascended Heroes",
+    "number": "073/217",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.53,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "38d83943177a45ae86118a53b8169a0a",
+    "name": "Miraidon ex",
+    "set": "Scarlet & Violet",
+    "number": "081/198",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.61,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "efa6ce714e4b414d861c3bf889ed67cb",
+    "name": "Miriam (Alternate Art)",
+    "set": "Scarlet & Violet",
+    "number": "251/198",
+    "rarity": "Special Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 17.87,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "1e7551e96ec74575bed62b16b060f3eb",
+    "name": "Moltres",
+    "set": "Skyridge",
+    "number": "21/144",
+    "rarity": "Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 53.12,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "39dd928071584144a3dd8bcec52200b3",
+    "name": "Moltres ex",
+    "set": "EX FireRed & LeafGreen",
+    "number": "115/112",
+    "rarity": "Secret Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 72.47,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "6f0ab8383dc94470a57d6c272a8f41dd",
+    "name": "Muk",
+    "set": "Fossil Unlimited",
+    "number": "28/62",
+    "rarity": "Rare",
+    "grade": "PSA 9 MINT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 42.32,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "6ea1dc6d09494daca8602848bc22c41d",
+    "name": "N's Zekrom",
+    "set": "ME Black Star Promos",
+    "number": "031",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 5.52,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "11c2468ead4e454fa5e2167f00aab869",
+    "name": "N's Zekrom",
+    "set": "ME Black Star Promos",
+    "number": "031",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 5.52,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "d93bbd282c564537a8412f90c2305b3c",
+    "name": "N's Zekrom (Pokemon Center Exclusive)",
+    "set": "ME Black Star Promos",
+    "number": "031",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 60.19,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "2806de9072a448a59b5e393114304536",
+    "name": "Nidoking",
+    "set": "EX FireRed & LeafGreen",
+    "number": "8/112",
+    "rarity": "Reverse Holo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 58.99,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "8818bf40a1444c558d7b5ec1e49af905",
+    "name": "Nidoqueen",
+    "set": "Legendary Collection",
+    "number": "32/110",
+    "rarity": "Reverse Holo",
+    "grade": "BGS 8.5 NM-MT+",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 499.97,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "8fd56ff2a9894e7e8d5ee5bd0a28bb41",
+    "name": "Ninetales",
+    "set": "Obsidian Flames",
+    "number": "199/197",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 34.65,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "2436500d2c414c65889fad8cb600d5b4",
+    "name": "Ninjask",
+    "set": "Mega Evolution Base Set",
+    "number": "137/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.92,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "3506b8b04cd049cbb23f773b57970041",
+    "name": "Oinkologne ex",
+    "set": "Scarlet & Violet",
+    "number": "234/198",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.25,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "e0f783490a4747a5a1b9caf36d1c541a",
+    "name": "Oranguru V",
+    "set": "Astral Radiance",
+    "number": "133/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.82,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b9e525b1c39c44e193ee409ed7f6dff5",
+    "name": "Oranguru V",
+    "set": "Astral Radiance",
+    "number": "179/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.0,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "6164ec371b774cefab4a3fd5a4174ec3",
+    "name": "Orbeetle VMAX",
+    "set": "Lost Origin",
+    "number": "TG13/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 11.25,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b5be3ed803124bf78c3353ff2b18faf3",
+    "name": "Oricorio ex",
+    "set": "ME Black Star Promos",
+    "number": "024",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 8.41,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "6cfb36b52d5f451d8672fb34dfc87980",
+    "name": "Origin Forme Dialga V",
+    "set": "Astral Radiance",
+    "number": "113/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.28,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "3536d32871ac4f55b306e8f71a07f1ce",
+    "name": "Origin Forme Dialga VSTAR",
+    "set": "Astral Radiance",
+    "number": "210/189",
+    "rarity": "Secret Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 13.24,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "bd3a591b35c14495a940f017b7a21bcf",
+    "name": "Origin Forme Palkia V",
+    "set": "Astral Radiance",
+    "number": "039/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.83,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "61c7d3bdc9454c96b3203a15d6cddbbe",
+    "name": "Oshawott",
+    "set": "ME Black Star Promos",
+    "number": "051",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.49,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "d05b8b3ddb25466f82c28d09c350dd60",
+    "name": "Parasect",
+    "set": "Lost Origin",
+    "number": "TG01/TG30",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.49,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "d9e7b3f3bc6a4c39972b41a8221c27a7",
+    "name": "Pidgeot V",
+    "set": "Lost Origin",
+    "number": "137/196",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 0.71,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "8cefd7f1721943b5bade797904058ae0",
+    "name": "Pikachu",
+    "set": "Celebrations",
+    "number": "005/025",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 4.65,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b71f87f993e94c82bd28a9f4671812d2",
+    "name": "Pikachu",
+    "set": "Celebrations",
+    "number": "005/025",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.65,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "44b472f486994a29839b1aa4d342a8ec",
+    "name": "Pikachu",
+    "set": "Lost Origin",
+    "number": "TG05/TG30",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 40.65,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "d6f593a2378a4df580cd210f3fd176ee",
+    "name": "Pikachu",
+    "set": "Lost Origin",
+    "number": "TG05/TG30",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 40.65,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "f1a4132d07e54fc7bd956a90a078820a",
+    "name": "Pikachu & Zekrom-GX",
+    "set": "SM Black Star Promos",
+    "number": "SM248",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 34.96,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-09-27"
+  },
+  {
+    "id": "cf7f3d8e3f894f9293f943b7d140c70f",
+    "name": "Pikachu (Premium Collection)",
+    "set": "Celebrations",
+    "number": "58",
+    "rarity": "Metal Card",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 160.88,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "9605d425d78040d68a4ee926ef1da11d",
+    "name": "Pikachu VMAX",
+    "set": "Lost Origin",
+    "number": "TG29/TG30",
+    "rarity": "Secret Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 24.5,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "e4125bca71014f7cb9d16e46a5e91c69",
+    "name": "Piplup",
+    "set": "ME Black Star Promos",
+    "number": "042",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 10.27,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "e22485647057486488d16fe964a95e40",
+    "name": "Pok\u00e9 Ball",
+    "set": "SWSH Black Star Promos",
+    "number": "SWSH146",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 37.83,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "27f23500804841c8a7427b113a530d80",
+    "name": "Primal Groudon-EX",
+    "set": "Ancient Origins",
+    "number": "97/98",
+    "rarity": "Secret Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 331.1,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "ede9e0a760414b4b82e0771fc731b824",
+    "name": "Primarina",
+    "set": "Pitch Black",
+    "number": "088/084",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.47,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "92fb51bdbecc4236a97bd773abd98860",
+    "name": "Prismatic Evolutions Super-Premium Collection",
+    "set": "Prismatic Evolutions",
+    "number": "",
+    "rarity": "Sealed",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 254.06,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "80fcc5b139a5462393b57e0c3c300fed",
+    "name": "Probopass",
+    "set": "Perfect Order",
+    "number": "096/088",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.04,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "c376f855c8374089a811fcdb158da9c6",
+    "name": "Ralts",
+    "set": "Scarlet & Violet",
+    "number": "211/198",
+    "rarity": "Illustration Rare",
+    "grade": "CGC 10 Gem Mint",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 147.5,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "691a727f1abd4c02a9ed29a7323a5abc",
+    "name": "Raticate",
+    "set": "Perfect Order",
+    "number": "099/088",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.98,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "2b06383b939946b4a790e399ac514384",
+    "name": "Rayquaza VMAX",
+    "set": "Silver Tempest",
+    "number": "TG20/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 185.42,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "eef041f95625482aa0906a5d6b763d7c",
+    "name": "Registeel ex",
+    "set": "Ascended Heroes",
+    "number": "145/217",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.61,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "8f0e90f6a7f84d75a63e8ec6f0e2973b",
+    "name": "Revavroom ex",
+    "set": "Obsidian Flames",
+    "number": "156/197",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.68,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "fd160ba4a3514b999dd5c69ca1b6fa5e",
+    "name": "Rosa's Encouragement",
+    "set": "Perfect Order",
+    "number": "123/088",
+    "rarity": "Special Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 37.15,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "8297079983734c36a795f6cdbf187035",
+    "name": "Rotom V",
+    "set": "Crown Zenith",
+    "number": "045/159",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.86,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "55f73442ff32474fb847618efa524510",
+    "name": "Rowlet",
+    "set": "Perfect Order",
+    "number": "090/088",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.6,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "53deee36d60b42d686a68cb18b3a4b5b",
+    "name": "Salazzle",
+    "set": "Ascended Heroes",
+    "number": "224/217",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.54,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "77b40261e3fe4b589b146ec0895f61bf",
+    "name": "Salazzle ex",
+    "set": "Perfect Order",
+    "number": "016/088",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.44,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "172619472f824dc5aa2e48596452bd30",
+    "name": "Seismitoad",
+    "set": "Black Bolt",
+    "number": "105/086",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 206.3,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "fde75f069ba143288f3648d5ef0b2386",
+    "name": "Servine",
+    "set": "Black Bolt",
+    "number": "088/086",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 14.78,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "008a88d5e707481ca243a13c0cc112c5",
+    "name": "Shadow Rider Calyrex VMAX",
+    "set": "Astral Radiance",
+    "number": "TG30/TG30",
+    "rarity": "Secret Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.03,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "05d895fb7a224ce0adeb578fdb12e5ab",
+    "name": "Shedinja",
+    "set": "Mega Evolution Base Set",
+    "number": "144/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.26,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "4804af6a3c5e4996a63b9060be032f95",
+    "name": "Shining Celebi",
+    "set": "30th Celebration Classic Collection",
+    "number": "106/105",
+    "rarity": "Classic Collection",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 24.95,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-09-27"
+  },
+  {
+    "id": "c9f3b8d4b7ad4970b1507650b857397a",
+    "name": "Shroodle",
+    "set": "Mega Evolution Base Set",
+    "number": "149/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 2.11,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b5e00a46981d46cbbad480f9963dde1d",
+    "name": "Shuckle",
+    "set": "Mega Evolution Base Set",
+    "number": "136/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 7.2,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "15a771ff31284049a3abd9313be88d15",
+    "name": "Sigilyph",
+    "set": "White Flare",
+    "number": "121/086",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 10.45,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "0a5432b5799543eab6f94b531592158f",
+    "name": "Silvally",
+    "set": "Pitch Black",
+    "number": "095/084",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.46,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "c1f59af177c64785ace6886a411f7c8f",
+    "name": "Snivy",
+    "set": "ME Black Star Promos",
+    "number": "049",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.17,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "561e710680584fd6bdea600bcb157ed1",
+    "name": "Snorlax",
+    "set": "Lost Origin",
+    "number": "TG10/TG30",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 22.31,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "17ff6c92911545019f25c39dd0bb752e",
+    "name": "Snover",
+    "set": "Mega Evolution Base Set",
+    "number": "140/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 2.25,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "8db4fd63efb14bffb8fb34278dbd3bef",
+    "name": "Spidops ex (Alternate Art)",
+    "set": "Scarlet & Violet",
+    "number": "243/198",
+    "rarity": "Special Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 8.39,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "dba7110523d04f58ba6a0c1fee1f784f",
+    "name": "Spiritomb",
+    "set": "Mega Evolution Base Set",
+    "number": "148/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.59,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "57eccfdbbf84463492cb2b041c84d189",
+    "name": "Spiritomb",
+    "set": "Lost Origin",
+    "number": "TG09/TG30",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 2.7,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "dff469bc062d4ad6bd75e992b90bfbe6",
+    "name": "Starmie V",
+    "set": "Astral Radiance",
+    "number": "030/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 1.02,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "56506c0ba6eb43e0a32d8555eef299f3",
+    "name": "Surfing Pikachu V",
+    "set": "Celebrations",
+    "number": "008/025",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.79,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "a5a3bc87690f40e4be8c81ce2e59e9b6",
+    "name": "Surfing Pikachu VMAX",
+    "set": "Celebrations",
+    "number": "009/025",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 5.96,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "6de73d6883754cdba8fc4ef56c3a7b84",
+    "name": "Surging Sparks Elite Trainer Box (Pokemon Center) Case",
+    "set": "Surging Sparks",
+    "number": "",
+    "rarity": "Sealed",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1201.13,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "8a00decc91a445bebf97862e57ba6a66",
+    "name": "Sylveon VMAX",
+    "set": "Brilliant Stars",
+    "number": "TG15/TG30",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 65.17,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "0e78445f61e0477aba5c4cc87b4a7559",
+    "name": "Sylveon ex",
+    "set": "Prismatic Evolutions",
+    "number": "041/131",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.71,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "7f10b2fe63af4b07a783f372b80db6e4",
+    "name": "Sylveon-EX",
+    "set": "Generations",
+    "number": "RC21/RC32",
+    "rarity": "Ultra Rare",
+    "grade": "PSA 7 NM",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 82.5,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "def994957c604db398a4a4cb60622938",
+    "name": "Sylveon-EX",
+    "set": "Generations",
+    "number": "RC32/RC32",
+    "rarity": "Ultra Rare",
+    "grade": "PSA 5 EX",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 95.25,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b95eef6f8f524b6297c178b603b6df21",
+    "name": "Talonflame",
+    "set": "Perfect Order",
+    "number": "091/088",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 1.64,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b9c20163b64c4caf82f3143f8b9b1724",
+    "name": "Tapu Lele-GX",
+    "set": "Guardians Rising",
+    "number": "60/145",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 6.81,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "a00be0f9917e4b0696dbad8e5f17a6c4",
+    "name": "Team Rocket's Meowth",
+    "set": "Destined Rivals",
+    "number": "203/182",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 17.38,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "12961259f4e04f75999952af39ced0f4",
+    "name": "Team Rocket's Mewtwo ex",
+    "set": "Ascended Heroes",
+    "number": "281/217",
+    "rarity": "Special Illustration Rare",
+    "grade": "BGS 9.5 GEM MINT",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 380.03,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "e646e2ef350a491ca5a265fcf9f60e86",
+    "name": "Tepig",
+    "set": "ME Black Star Promos",
+    "number": "050",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.95,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "0b9e7fa56f254bde9d42036642dff92a",
+    "name": "Terapagos ex",
+    "set": "Prismatic Evolutions",
+    "number": "092/131",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.67,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "8046ecf16aaf4fba825d3dcc8e53b8d9",
+    "name": "Thundurus",
+    "set": "SV Black Star Promos",
+    "number": "209",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.32,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "419eb4199ee149f9aa86421355a73f3a",
+    "name": "Togepi",
+    "set": "Southern Islands",
+    "number": "4/18",
+    "rarity": "No Rarity",
+    "grade": "CGC 9.5 Mint+",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 11920.23,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "446e932bce4940229184dd19892f8b40",
+    "name": "Toucannon",
+    "set": "Pitch Black",
+    "number": "094/084",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 1.72,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "1b252c73a81644f99acc45377e9030cc",
+    "name": "Toxicroak ex",
+    "set": "Scarlet & Violet",
+    "number": "131/198",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.57,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "503554c47f104092a330f57bc343db13",
+    "name": "Turtwig",
+    "set": "ME Black Star Promos",
+    "number": "040",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 5.62,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "43284646c4bd486c8051e0fc7916f486",
+    "name": "Umbreon",
+    "set": "Neo Discovery Unlimited",
+    "number": "13/75",
+    "rarity": "Holo Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 817.16,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "b41bbae718d84cfeac1d56a249b5b213",
+    "name": "Umbreon VMAX",
+    "set": "Evolving Skies",
+    "number": "095/203",
+    "rarity": "Ultra Rare",
+    "grade": "CGC 10 Gem Mint",
+    "isSlab": true,
+    "quantity": 1,
+    "price": 50.63,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "800a01a73f0342b39a9d08693c744279",
+    "name": "Uxie",
+    "set": "30th Celebration Classic Collection",
+    "number": "43/146",
+    "rarity": "Classic Collection",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 5.39,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-09-27"
+  },
+  {
+    "id": "5456a6b803c342dc8c6bac6cadc22675",
+    "name": "Varoom",
+    "set": "Obsidian Flames",
+    "number": "206/197",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.65,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "c9b240180cbf46f6b72058c20bba682c",
+    "name": "Veluza ex",
+    "set": "Journey Together",
+    "number": "043/159",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.57,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "c802467668e940798d15e28312fffcbb",
+    "name": "Victini ex",
+    "set": "Obsidian Flames",
+    "number": "033/197",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 1.07,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "3d75691ae4584e49b2de39a25dc35e97",
+    "name": "Vileplume",
+    "set": "Southern Islands",
+    "number": "17/18",
+    "rarity": "No Rarity",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 82.25,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-09-28"
+  },
+  {
+    "id": "8e052a1e1e244811892d3544e3e6a0c2",
+    "name": "Vulpix",
+    "set": "Mega Evolution Base Set",
+    "number": "138/132",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 18.48,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "6b58992846f548e58e4a90a80092cd0c",
+    "name": "Wyrdeer V",
+    "set": "Astral Radiance",
+    "number": "134/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.86,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "be1ff0de1f24441fa7f1956efdb6f275",
+    "name": "Wyrdeer V",
+    "set": "Astral Radiance",
+    "number": "180/189",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 2.13,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "f8f592e7796f4fabb08fd7eff635d026",
+    "name": "Xerneas-EX",
+    "set": "Celebrations",
+    "number": "97/146",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 4.18,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "495d8c4cdd1e464b8bbd806648ff7234",
+    "name": "Yveltal ex",
+    "set": "Perfect Order",
+    "number": "053/088",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 0.48,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "67d6a63a4d4e48839bf2f6e7086e7847",
+    "name": "Yveltal ex",
+    "set": "Perfect Order",
+    "number": "105/088",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.43,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "a291df6ce9b8468ea9715121e9cf78d3",
+    "name": "Zacian",
+    "set": "Phantasmal Flames",
+    "number": "100/094",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 3.8,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "040ac01770f14874a139364185a3b67d",
+    "name": "Zacian V",
+    "set": "Celebrations",
+    "number": "016/025",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 2,
+    "price": 0.63,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "fb7a6f071f3e43469da093a2842e9463",
+    "name": "Zamazenta V",
+    "set": "Celebrations",
+    "number": "018/025",
+    "rarity": "Ultra Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.65,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "33e7df3e02f54ed58e6c5a0d51468546",
+    "name": "Zapdos",
+    "set": "30th Anniversary Celebration",
+    "number": "133/128",
+    "rarity": "Illustration Rare",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 8.83,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-09-27"
+  },
+  {
+    "id": "78d4e12f66f9447cb67d4e56d0a112aa",
+    "name": "Zarude",
+    "set": "ME Black Star Promos",
+    "number": "088",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.79,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "18acc8be331949c2b749db38ea137d29",
+    "name": "Zarude (Pokemon Center Exclusive)",
+    "set": "ME Black Star Promos",
+    "number": "088",
+    "rarity": "Promo",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 20.01,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  },
+  {
+    "id": "96bb4054e6464321a6a8d05735fe045c",
+    "name": "Zekrom ex",
+    "set": "Black Bolt",
+    "number": "034/086",
+    "rarity": "Double Rare (RR)",
+    "grade": "Near Mint",
+    "isSlab": false,
+    "quantity": 1,
+    "price": 0.56,
+    "status": "available",
+    "frontImg": "",
+    "backImg": "",
+    "dateAdded": "2026-08-23"
+  }
+];
+
+  var SAMPLE_BUNDLES = [];
 
   var cards = [];
-  var order = {}; // id -> card
+  var bundles = [];
+  var order = {}; // id -> card or bundle
   var filteredIds = [];
   var currentModalIndex = -1;
+
+  function loadBundles() {
+    try {
+      var raw = localStorage.getItem(BUNDLE_STORAGE_KEY);
+      if (raw) { bundles = JSON.parse(raw); return; }
+    } catch (e) { /* ignore */ }
+    bundles = SAMPLE_BUNDLES.slice();
+  }
+  function saveBundlesToStorage(data) {
+    try { localStorage.setItem(BUNDLE_STORAGE_KEY, JSON.stringify(data)); return true; }
+    catch (e) { return false; }
+  }
 
   function loadCatalog() {
     try {
@@ -585,6 +5158,98 @@
     document.getElementById("statCount").textContent = cards.length;
   }
 
+  var ERA_ORDER = ["Mega Evolution", "Scarlet & Violet", "Sword & Shield", "Sun & Moon", "XY", "HeartGold & SoulSilver", "EX", "e-Card", "Neo", "Gym", "Base", "Japanese", "Other"];
+  var SET_ERA = {
+    "Mega Evolution Base Set": "Mega Evolution", "Phantasmal Flames": "Mega Evolution", "Ascended Heroes": "Mega Evolution",
+    "Perfect Order": "Mega Evolution", "Chaos Rising": "Mega Evolution", "Pitch Black": "Mega Evolution",
+    "30th Anniversary Celebration": "Mega Evolution", "30th Celebration Classic Collection": "Mega Evolution",
+    "Delta Reign": "Mega Evolution", "ME Black Star Promos": "Mega Evolution",
+    "Scarlet & Violet": "Scarlet & Violet", "Scarlet & Violet 151": "Scarlet & Violet", "Obsidian Flames": "Scarlet & Violet",
+    "Paldea Evolved": "Scarlet & Violet", "Paradox Rift": "Scarlet & Violet", "Paldean Fates": "Scarlet & Violet",
+    "Temporal Forces": "Scarlet & Violet", "Twilight Masquerade": "Scarlet & Violet", "Shrouded Fable": "Scarlet & Violet",
+    "Stellar Crown": "Scarlet & Violet", "Surging Sparks": "Scarlet & Violet", "Prismatic Evolutions": "Scarlet & Violet",
+    "Journey Together": "Scarlet & Violet", "Destined Rivals": "Scarlet & Violet", "Black Bolt": "Scarlet & Violet",
+    "White Flare": "Scarlet & Violet", "SV Black Star Promos": "Scarlet & Violet",
+    "Sword & Shield": "Sword & Shield", "Chilling Reign": "Sword & Shield", "Evolving Skies": "Sword & Shield",
+    "Celebrations": "Sword & Shield", "Fusion Strike": "Sword & Shield", "Brilliant Stars": "Sword & Shield",
+    "Astral Radiance": "Sword & Shield", "Lost Origin": "Sword & Shield", "Silver Tempest": "Sword & Shield",
+    "Crown Zenith": "Sword & Shield", "SWSH Black Star Promos": "Sword & Shield",
+    "Guardians Rising": "Sun & Moon", "SM Black Star Promos": "Sun & Moon",
+    "Roaring Skies": "XY", "Ancient Origins": "XY", "Generations": "XY",
+    "Triumphant": "HeartGold & SoulSilver", "Call of Legends": "HeartGold & SoulSilver",
+    "EX Ruby & Sapphire": "EX", "EX FireRed & LeafGreen": "EX", "EX Holon Phantoms": "EX",
+    "EX Crystal Guardians": "EX", "EX Dragon Frontiers": "EX",
+    "Skyridge": "e-Card",
+    "Neo Discovery Unlimited": "Neo", "Neo Revelation 1st Edition": "Neo", "Neo Revelation Unlimited": "Neo",
+    "Gym Heroes Unlimited": "Gym", "Gym Challenge Unlimited": "Gym",
+    "Base Set Unlimited": "Base", "Fossil Unlimited": "Base", "Team Rocket 1st Edition": "Base",
+    "Team Rocket Unlimited": "Base", "Legendary Collection": "Base", "Southern Islands": "Base",
+    "Wizards Black Star Promos": "Base",
+    "Expansion Pack (Base Set)": "Japanese", "Hot Wind Arena": "Japanese", "Mega Symphonia": "Japanese", "Start Deck 100": "Japanese",
+    "Prize Pack Series Cards": "Other"
+  };
+  var collapsedEras = {};
+
+  function computeSetSummaries() {
+    var map = {};
+    cards.forEach(function (c) {
+      if (c.status !== "available") return;
+      if (!map[c.set]) map[c.set] = { set: c.set, count: 0, value: 0 };
+      map[c.set].count += 1;
+      map[c.set].value += Number(c.price || 0) * (c.quantity || 1);
+    });
+    return Object.keys(map).map(function (k) { return map[k]; })
+      .sort(function (a, b) { return b.value - a.value; });
+  }
+
+  function renderSetTiles() {
+    var grid = document.getElementById("setTileGrid");
+    var summaries = computeSetSummaries();
+    var activeSet = document.getElementById("setFilter").value;
+    var q = document.getElementById("setSearch").value.trim().toLowerCase();
+    var sortMode = document.getElementById("setSort").value;
+    var totalAll = summaries.reduce(function (sum, s) { return sum + s.value; }, 0);
+    var shown = summaries.filter(function (s) { return !q || s.set.toLowerCase().indexOf(q) !== -1; });
+    if (sortMode === "name") shown.sort(function (a, b) { return a.set.localeCompare(b.set); });
+    else if (sortMode === "value-asc") shown.sort(function (a, b) { return a.value - b.value; });
+    else shown.sort(function (a, b) { return b.value - a.value; });
+    var allTile = q ? '' :
+      '<button class="set-tile ' + (activeSet === "" ? "active" : "") + '" data-set="">' +
+        '<span class="set-tile-name">All sets</span>' +
+        '<span class="set-tile-value">' + money(totalAll) + '</span>' +
+      '</button>';
+    function tile(s) {
+      return (
+        '<button class="set-tile ' + (activeSet === s.set ? "active" : "") + '" data-set="' + escapeHtml(s.set) + '">' +
+          '<span class="set-tile-name">' + escapeHtml(s.set) + '</span>' +
+          '<span class="set-tile-value">' + money(s.value) + '</span>' +
+        '</button>'
+      );
+    }
+    var groups = {};
+    shown.forEach(function (s) {
+      var era = SET_ERA[s.set] || "Other";
+      (groups[era] = groups[era] || []).push(s);
+    });
+    var eraHtml = ERA_ORDER.filter(function (e) { return groups[e]; }).map(function (era) {
+      var list = groups[era];
+      var eraTotal = list.reduce(function (sum, s) { return sum + s.value; }, 0);
+      var collapsed = !q && collapsedEras[era];
+      return (
+        '<section class="era-section">' +
+          '<button class="era-head" data-era="' + escapeHtml(era) + '" aria-expanded="' + (!collapsed) + '">' +
+            '<span class="era-name">' + escapeHtml(era) + '</span>' +
+            '<span class="era-total">' + money(eraTotal) + '</span>' +
+            '<span class="era-caret">' + (collapsed ? "▾" : "▴") + '</span>' +
+          '</button>' +
+          (collapsed ? '' : '<div class="era-grid">' + list.map(tile).join("") + '</div>') +
+        '</section>'
+      );
+    }).join("");
+    grid.innerHTML = (allTile ? '<div class="era-grid era-all">' + allTile + '</div>' : '') +
+      (eraHtml || '<div class="set-tile-empty">No sets match that search.</div>');
+  }
+
   function populateSetFilter() {
     var sel = document.getElementById("setFilter");
     var sets = Array.from(new Set(cards.map(function (c) { return c.set; }))).sort();
@@ -600,22 +5265,43 @@
     return '<div class="thumb-fallback ' + (extraClass||'') + '">' + escapeHtml(name) + '</div>';
   }
 
+  var typeFilter = "all";
+
   function matchesFilters(c) {
     var q = document.getElementById("searchInput").value.trim().toLowerCase();
     var setVal = document.getElementById("setFilter").value;
     var availOnly = document.getElementById("availOnlyBtn").classList.contains("active");
     if (setVal && c.set !== setVal) return false;
     if (availOnly && c.status !== "available") return false;
+    if (typeFilter === "raw" && c.isSlab) return false;
+    if (typeFilter === "slab" && !c.isSlab) return false;
     if (q) {
-      var hay = (c.name + " " + c.set + " " + c.number).toLowerCase();
+      var hay = (c.name + " " + c.set + " " + c.number + " " + (c.rarity || "") + " " + (c.grade || "")).toLowerCase();
       if (hay.indexOf(q) === -1) return false;
     }
     return true;
   }
 
+  function sortCards(list) {
+    var mode = document.getElementById("sortSelect").value;
+    var sorted = list.slice();
+    if (mode === "oldest") {
+      sorted.sort(function (a, b) { return (a.dateAdded || "9999").localeCompare(b.dateAdded || "9999"); });
+    } else if (mode === "newest") {
+      sorted.sort(function (a, b) { return (b.dateAdded || "").localeCompare(a.dateAdded || ""); });
+    } else if (mode === "price-desc") {
+      sorted.sort(function (a, b) { return Number(b.price) - Number(a.price); });
+    } else if (mode === "price-asc") {
+      sorted.sort(function (a, b) { return Number(a.price) - Number(b.price); });
+    } else {
+      sorted.sort(function (a, b) { return a.name.localeCompare(b.name); });
+    }
+    return sorted;
+  }
+
   function renderGrid() {
     var grid = document.getElementById("grid");
-    var visible = cards.filter(matchesFilters);
+    var visible = sortCards(cards.filter(matchesFilters));
     filteredIds = visible.map(function (c) { return c.id; });
 
     document.getElementById("emptyState").style.display = visible.length ? "none" : "block";
@@ -627,11 +5313,14 @@
         '<div class="tile ' + (c.status === "sold" ? "sold" : "") + '" data-id="' + escapeHtml(c.id) + '">' +
           '<div class="thumb-wrap" data-open="' + escapeHtml(c.id) + '">' +
             imgOrFallback(c.frontImg, c.name) +
+            (c.quantity > 1 ? '<span class="qty-badge">×' + c.quantity + '</span>' : '') +
             '<span class="status-badge status-' + c.status + '">' + statusLabel(c.status) + '</span>' +
           '</div>' +
           '<div class="tile-body">' +
             '<p class="tile-name">' + escapeHtml(c.name) + '</p>' +
             '<p class="tile-meta">' + escapeHtml(c.set) + ' · #' + escapeHtml(c.number) + (c.edition ? ' · ' + escapeHtml(c.edition) : '') + '</p>' +
+            '<p class="tile-meta2"><span class="type-chip ' + (c.isSlab ? "slab" : "raw") + '">' + (c.isSlab ? "Slab" : "Raw") + '</span> ' + [c.rarity, c.grade].filter(Boolean).map(escapeHtml).join(' · ') + '</p>' +
+            (showDates && c.dateAdded ? '<p class="date-line">Listed ' + formatDate(c.dateAdded) + (daysSince(c.dateAdded) >= STALE_DAYS && c.status === "available" ? '<span class="stale-chip">' + daysSince(c.dateAdded) + 'd</span>' : '') + '</p>' : '') +
             '<div class="tile-foot">' +
               '<span class="tile-price">' + money(c.price) + '</span>' +
               '<button class="add-btn ' + (inOrder ? "added" : "") + '" data-add="' + escapeHtml(c.id) + '" ' + (disabled ? "disabled" : "") + '>' +
@@ -646,6 +5335,58 @@
 
   function cardById(id) {
     return cards.filter(function (c) { return c.id === id; })[0];
+  }
+
+  function renderBundles() {
+    var section = document.getElementById("bundleSection");
+    var grid = document.getElementById("bundleGrid");
+    var visibleBundles = bundles.filter(function (b) { return b.status !== "sold"; });
+    if (!visibleBundles.length) { section.style.display = "none"; grid.innerHTML = ""; return; }
+    section.style.display = "block";
+    grid.innerHTML = visibleBundles.map(function (b) {
+      var includedCards = (b.cardIds || []).map(cardById).filter(Boolean);
+      var originalTotal = includedCards.reduce(function (sum, c) { return sum + Number(c.price || 0) * (c.quantity || 1); }, 0);
+      var savings = originalTotal - Number(b.price || 0);
+      var bundleKey = "bundle-" + b.id;
+      var inOrder = !!order[bundleKey];
+      return (
+        '<div class="bundle-card">' +
+          '<p class="bundle-title">' + escapeHtml(b.title) + '</p>' +
+          (b.description ? '<p class="bundle-desc">' + escapeHtml(b.description) + '</p>' : '') +
+          '<p class="bundle-items">' + includedCards.map(function (c) { return escapeHtml(c.name); }).join(" · ") + '</p>' +
+          '<div class="bundle-price-row">' +
+            '<span class="bundle-price">' + money(b.price) + '</span>' +
+            (originalTotal > b.price ? '<span class="bundle-was">' + money(originalTotal) + '</span>' : '') +
+          '</div>' +
+          (savings > 0 ? '<span class="bundle-save">Save ' + money(savings) + '</span>' : '') +
+          '<button class="bundle-add-btn ' + (inOrder ? "added" : "") + '" data-bundle="' + escapeHtml(b.id) + '">' +
+            (inOrder ? "Added ✓" : "Add bundle to order") +
+          '</button>' +
+        '</div>'
+      );
+    }).join("");
+  }
+
+  function toggleBundleOrder(bundleId) {
+    var b = bundles.filter(function (x) { return x.id === bundleId; })[0];
+    if (!b) return;
+    var key = "bundle-" + bundleId;
+    if (order[key]) {
+      delete order[key];
+    } else {
+      var includedCards = (b.cardIds || []).map(cardById).filter(Boolean);
+      order[key] = {
+        id: key,
+        name: b.title,
+        set: "Bundle",
+        number: includedCards.length + " cards",
+        price: Number(b.price || 0),
+        isBundle: true,
+        bundleItems: includedCards.map(function (c) { return c.name; })
+      };
+    }
+    renderBundles();
+    renderTray();
   }
 
   function toggleOrder(id) {
@@ -670,7 +5411,12 @@
     var lines = ["Grammercy TCG Co. — Order Request", "----------------------------------"];
     ids.forEach(function (id, i) {
       var c = order[id];
-      lines.push((i + 1) + ". " + c.name + " (" + c.set + " #" + c.number + (c.edition ? ", " + c.edition : "") + ") — " + money(c.price));
+      if (c.isBundle) {
+        lines.push((i + 1) + ". " + c.name + " — Bundle of " + c.number + " — " + money(c.price));
+        if (c.bundleItems && c.bundleItems.length) lines.push("    (" + c.bundleItems.join(", ") + ")");
+      } else {
+        lines.push((i + 1) + ". " + c.name + " (" + c.set + " #" + c.number + (c.edition ? ", " + c.edition : "") + ") — " + money(c.price));
+      }
     });
     var total = ids.reduce(function (sum, id) { return sum + Number(order[id].price || 0); }, 0);
     lines.push("----------------------------------");
@@ -683,7 +5429,10 @@
     var rows = document.getElementById("orderRows");
     rows.innerHTML = ids.map(function (id) {
       var c = order[id];
-      return '<div class="order-row"><span>' + escapeHtml(c.name) + ' <span style="color:var(--text-dim)">(' + escapeHtml(c.set) + ' #' + escapeHtml(c.number) + ')</span></span>' +
+      var label = c.isBundle
+        ? escapeHtml(c.name) + ' <span style="color:var(--text-dim)">(Bundle · ' + escapeHtml(c.number) + ')</span>'
+        : escapeHtml(c.name) + ' <span style="color:var(--text-dim)">(' + escapeHtml(c.set) + ' #' + escapeHtml(c.number) + ')</span>';
+      return '<div class="order-row"><span>' + label + '</span>' +
         '<span>' + money(c.price) + ' <button class="rm" data-rm="' + escapeHtml(id) + '">remove</button></span></div>';
     }).join("") || '<p style="color:var(--text-dim);font-size:0.9rem;">No cards selected yet.</p>';
     var total = ids.reduce(function (sum, id) { return sum + Number(order[id].price || 0); }, 0);
@@ -711,7 +5460,7 @@
     var id = filteredIds[currentModalIndex];
     var c = cardById(id);
     if (!c) return;
-    document.getElementById("modalMeta").textContent = c.set + " · #" + c.number + (c.edition ? " · " + c.edition : "");
+    document.getElementById("modalMeta").textContent = [c.set + " · #" + c.number + (c.edition ? " · " + c.edition : ""), c.rarity, c.grade, (showDates && c.dateAdded) ? "Listed " + formatDate(c.dateAdded) : ""].filter(Boolean).join(" · ");
     document.getElementById("modalName").textContent = c.name;
     document.getElementById("modalPrice").textContent = money(c.price);
     var statusEl = document.getElementById("modalStatus");
@@ -745,6 +5494,11 @@
     }
   });
 
+  document.getElementById("bundleGrid").addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-bundle]");
+    if (btn) toggleBundleOrder(btn.getAttribute("data-bundle"));
+  });
+
   document.getElementById("modalClose").addEventListener("click", closeModal);
   document.getElementById("modalOverlay").addEventListener("click", function (e) {
     if (e.target.id === "modalOverlay") closeModal();
@@ -758,10 +5512,39 @@
     if (e.key === "ArrowRight") stepModal(1);
   });
 
+  document.getElementById("setTileGrid").addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-set]");
+    if (!btn) return;
+    document.getElementById("setFilter").value = btn.getAttribute("data-set");
+    renderGrid();
+    renderSetTiles();
+    document.getElementById("grid").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  document.getElementById("setTileGrid").addEventListener("click", function (e) {
+    var head = e.target.closest("[data-era]");
+    if (!head) return;
+    var era = head.getAttribute("data-era");
+    collapsedEras[era] = !collapsedEras[era];
+    renderSetTiles();
+  });
+
+  document.getElementById("setSearch").addEventListener("input", renderSetTiles);
+  document.getElementById("setSort").addEventListener("change", renderSetTiles);
+
   document.getElementById("searchInput").addEventListener("input", renderGrid);
-  document.getElementById("setFilter").addEventListener("change", renderGrid);
+  document.getElementById("setFilter").addEventListener("change", function () { renderGrid(); renderSetTiles(); });
+  document.getElementById("sortSelect").addEventListener("change", renderGrid);
   document.getElementById("availOnlyBtn").addEventListener("click", function () {
     this.classList.toggle("active");
+    renderGrid();
+  });
+  document.getElementById("typeGroup").addEventListener("click", function (e) {
+    var btn = e.target.closest("button[data-type]");
+    if (!btn) return;
+    typeFilter = btn.getAttribute("data-type");
+    Array.prototype.forEach.call(this.querySelectorAll("button"), function (b) { b.classList.remove("active"); });
+    btn.classList.add("active");
     renderGrid();
   });
 
@@ -828,6 +5611,8 @@
       populateSetFilter();
       renderStats();
       renderGrid();
+      renderSetTiles();
+      renderBundles();
       setAdminMsg("Catalog saved — " + cards.length + " cards loaded.", true);
     } catch (e) {
       setAdminMsg("Couldn't parse that JSON: " + e.message, false);
@@ -839,6 +5624,7 @@
     populateSetFilter();
     renderStats();
     renderGrid();
+    renderSetTiles();
     refreshAdminTextarea();
     setAdminMsg("Reset to sample data.", true);
   });
@@ -851,13 +5637,59 @@
     URL.revokeObjectURL(url);
   });
 
+  function refreshBundleTextarea() {
+    document.getElementById("bundleJson").value = JSON.stringify(bundles, null, 2);
+  }
+  function setBundleAdminMsg(msg, ok) {
+    var el = document.getElementById("bundleAdminMsg");
+    el.textContent = msg;
+    el.className = "admin-msg " + (ok ? "ok" : "err");
+  }
+  document.getElementById("saveBundlesBtn").addEventListener("click", function () {
+    var raw = document.getElementById("bundleJson").value;
+    try {
+      var parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) throw new Error("JSON must be an array of bundles.");
+      parsed.forEach(function (b, i) {
+        if (!b.id) b.id = "bundle-" + i + "-" + Date.now();
+      });
+      bundles = parsed;
+      saveBundlesToStorage(bundles);
+      renderBundles();
+      setBundleAdminMsg("Bundles saved — " + bundles.length + " live.", true);
+    } catch (e) {
+      setBundleAdminMsg("Couldn't parse that JSON: " + e.message, false);
+    }
+  });
+  document.getElementById("clearBundlesBtn").addEventListener("click", function () {
+    bundles = [];
+    saveBundlesToStorage(bundles);
+    renderBundles();
+    refreshBundleTextarea();
+    setBundleAdminMsg("All bundles cleared.", true);
+  });
+
+  document.getElementById("showDatesToggle").addEventListener("change", function () {
+    showDates = this.checked;
+    try { localStorage.setItem(SHOW_DATES_KEY, showDates ? "1" : "0"); } catch (e) {}
+    applyOwnerVisibility();
+    renderGrid();
+  });
+
   // ---- Init ----
   loadCatalog();
+  loadBundles();
+  loadShowDates();
   populateSetFilter();
+  applyOwnerVisibility();
+  document.getElementById("showDatesToggle").checked = showDates;
   renderStats();
   renderGrid();
+  renderSetTiles();
+  renderBundles();
   renderTray();
   refreshAdminTextarea();
+  refreshBundleTextarea();
 })();
 </script>
 </body>
